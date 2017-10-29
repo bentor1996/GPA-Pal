@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		B580CA3E1FA6769500945EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA3D1FA6769500945EE6 /* AppDelegate.swift */; };
-		B580CA401FA6769500945EE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA3F1FA6769500945EE6 /* ViewController.swift */; };
 		B580CA431FA6769500945EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B580CA411FA6769500945EE6 /* Main.storyboard */; };
 		B580CA461FA6769500945EE6 /* GPA_Pal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B580CA441FA6769500945EE6 /* GPA_Pal.xcdatamodeld */; };
 		B580CA481FA6769500945EE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B580CA471FA6769500945EE6 /* Assets.xcassets */; };
 		B580CA4B1FA6769500945EE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B580CA491FA6769500945EE6 /* LaunchScreen.storyboard */; };
+		B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA521FA682FC00945EE6 /* LoginViewController.swift */; };
+		B580CA551FA6849F00945EE6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA541FA6849F00945EE6 /* SignUpViewController.swift */; };
+		B580CA571FA6862700945EE6 /* SemestersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA561FA6862700945EE6 /* SemestersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B580CA3A1FA6769500945EE6 /* GPA Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B580CA3D1FA6769500945EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B580CA3F1FA6769500945EE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B580CA421FA6769500945EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B580CA451FA6769500945EE6 /* GPA_Pal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GPA_Pal.xcdatamodel; sourceTree = "<group>"; };
 		B580CA471FA6769500945EE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B580CA4A1FA6769500945EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B580CA4C1FA6769500945EE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B580CA521FA682FC00945EE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B580CA541FA6849F00945EE6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B580CA561FA6862700945EE6 /* SemestersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemestersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				B580CA3D1FA6769500945EE6 /* AppDelegate.swift */,
-				B580CA3F1FA6769500945EE6 /* ViewController.swift */,
+				B580CA521FA682FC00945EE6 /* LoginViewController.swift */,
+				B580CA541FA6849F00945EE6 /* SignUpViewController.swift */,
+				B580CA561FA6862700945EE6 /* SemestersViewController.swift */,
 				B580CA411FA6769500945EE6 /* Main.storyboard */,
 				B580CA471FA6769500945EE6 /* Assets.xcassets */,
 				B580CA491FA6769500945EE6 /* LaunchScreen.storyboard */,
@@ -139,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */,
 				B580CA461FA6769500945EE6 /* GPA_Pal.xcdatamodeld in Sources */,
-				B580CA401FA6769500945EE6 /* ViewController.swift in Sources */,
+				B580CA551FA6849F00945EE6 /* SignUpViewController.swift in Sources */,
+				B580CA571FA6862700945EE6 /* SemestersViewController.swift in Sources */,
 				B580CA3E1FA6769500945EE6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

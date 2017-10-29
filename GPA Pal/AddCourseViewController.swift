@@ -1,5 +1,5 @@
 //
-//  SemestersViewController.swift
+//  AddCourseViewController.swift
 //  GPA Pal
 //
 //  Created by Ben Torres on 10/29/17.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class SemestersViewController: UIViewController {
+class AddCourseViewController: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Semesters"
+        self.title = "New Class"
     }
 
     override func didReceiveMemoryWarning() {

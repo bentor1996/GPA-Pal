@@ -15,6 +15,9 @@
 		B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA521FA682FC00945EE6 /* LoginViewController.swift */; };
 		B580CA551FA6849F00945EE6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA541FA6849F00945EE6 /* SignUpViewController.swift */; };
 		B580CA571FA6862700945EE6 /* SemestersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA561FA6862700945EE6 /* SemestersViewController.swift */; };
+		B580CA5B1FA689AE00945EE6 /* SemestersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA5A1FA689AE00945EE6 /* SemestersTableViewCell.swift */; };
+		B580CA5F1FA68DDE00945EE6 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */; };
+		B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA601FA692D400945EE6 /* AddCourseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		B580CA521FA682FC00945EE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B580CA541FA6849F00945EE6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B580CA561FA6862700945EE6 /* SemestersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemestersViewController.swift; sourceTree = "<group>"; };
+		B580CA5A1FA689AE00945EE6 /* SemestersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemestersTableViewCell.swift; sourceTree = "<group>"; };
+		B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		B580CA601FA692D400945EE6 /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 				B580CA521FA682FC00945EE6 /* LoginViewController.swift */,
 				B580CA541FA6849F00945EE6 /* SignUpViewController.swift */,
 				B580CA561FA6862700945EE6 /* SemestersViewController.swift */,
+				B580CA5A1FA689AE00945EE6 /* SemestersTableViewCell.swift */,
+				B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */,
+				B580CA601FA692D400945EE6 /* AddCourseViewController.swift */,
 				B580CA411FA6769500945EE6 /* Main.storyboard */,
 				B580CA471FA6769500945EE6 /* Assets.xcassets */,
 				B580CA491FA6769500945EE6 /* LaunchScreen.storyboard */,
@@ -146,10 +155,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */,
+				B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */,
 				B580CA461FA6769500945EE6 /* GPA_Pal.xcdatamodeld in Sources */,
 				B580CA551FA6849F00945EE6 /* SignUpViewController.swift in Sources */,
+				B580CA5B1FA689AE00945EE6 /* SemestersTableViewCell.swift in Sources */,
 				B580CA571FA6862700945EE6 /* SemestersViewController.swift in Sources */,
 				B580CA3E1FA6769500945EE6 /* AppDelegate.swift in Sources */,
+				B580CA5F1FA68DDE00945EE6 /* CourseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  SemestersViewController.swift
+//  CourseViewController.swift
 //  GPA Pal
 //
 //  Created by Ben Torres on 10/29/17.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SemestersViewController: UIViewController {
+class CourseViewController: UIViewController {
 
+    @IBOutlet weak var btnTest: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Semesters"
+        btnTest.layer.cornerRadius = 10.0
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

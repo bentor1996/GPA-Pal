@@ -9,9 +9,13 @@
 import UIKit
 
 class SemestersTableViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var semesterName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColor(red:0.29, green:0.64, blue:0.76, alpha:1.0)
         // Initialization code
     }
 

@@ -10,11 +10,11 @@ import UIKit
 
 class CourseViewController: UIViewController {
 
-    @IBOutlet weak var btnTest: UIButton!
+    //@IBOutlet weak var btnTest: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnTest.layer.cornerRadius = 10.0
+        //btnTest.layer.cornerRadius = 10.0
         // Do any additional setup after loading the view.
     }
 

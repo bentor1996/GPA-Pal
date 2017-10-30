@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class AddCourseViewController: UIViewController {
+    
+    // this will initally be an empty list of Managed objects
+    // This View Controller will need to create a new course object and append it to this list
+    var courses = [NSManagedObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

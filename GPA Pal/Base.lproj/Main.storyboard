@@ -104,9 +104,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="NP8-bC-rCF" secondAttribute="trailing" constant="8" id="rcc-7M-GKO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.38319337368011475" green="0.63259893655776978" blue="0.74903851747512817" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="semesterName" destination="NP8-bC-rCF" id="SUq-ON-Vwe"/>
-                                            <segue destination="cmx-sr-FXl" kind="show" id="uQn-5e-DSb"/>
+                                            <segue destination="cmx-sr-FXl" kind="show" identifier="toAllClass" id="uQn-5e-DSb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -309,7 +310,7 @@
                                     <color key="titleColor" red="0.99913793799999995" green="0.98960047959999997" blue="0.91763627530000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="G8M-7L-5di" kind="show" id="kVa-pv-asb"/>
+                                    <segue destination="G8M-7L-5di" kind="show" identifier="toAddClass" id="kVa-pv-asb"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW9-7Q-r7U">
@@ -367,6 +368,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0q5-YV-YWn"/>
                     </view>
+                    <connections>
+                        <outlet property="settingsBtn" destination="xW9-7Q-r7U" id="Rlr-1K-fjv"/>
+                        <outlet property="tableView" destination="AjM-lj-P81" id="ld9-ch-R0y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkh-Eq-Icg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -138,8 +138,12 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toAllClass" {
+            if let cvc = segue.destination as? CourseViewController {
+                let selectedIndex = tableView.indexPathForSelectedRow
+                cvc.semester = semesters[(selectedIndex?.row)!]
+            }
+        }
     }
     
 

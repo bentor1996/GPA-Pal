@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                     <color key="titleColor" red="0.99913793799999995" green="0.98960047959999997" blue="0.91763627530000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9e8-Ba-gxe" kind="show" id="Wi3-v2-UkU"/>
+                                    <action selector="signIn:" destination="Tke-cS-JbY" eventType="touchUpInside" id="5uJ-he-7ui"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMp-JH-DmD">
@@ -78,6 +78,10 @@
                         <viewLayoutGuide key="safeArea" id="GvX-Tn-X6F"/>
                     </view>
                     <navigationItem key="navigationItem" id="5xs-GD-xOW"/>
+                    <connections>
+                        <outlet property="password" destination="1Ji-wp-rfy" id="Pjv-ug-IOW"/>
+                        <segue destination="9e8-Ba-gxe" kind="show" identifier="toSemesters" id="J0h-5B-Cqu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5Z-xV-u2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -455,6 +459,9 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" red="0.99913793799999995" green="0.98960047959999997" blue="0.91763627530000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="createUser:" destination="BMj-Kc-i3D" eventType="touchUpInside" id="v7N-8n-Rbs"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aD-S1-y8S">
                                 <rect key="frame" x="16" y="199" width="343" height="21"/>
@@ -498,6 +505,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BCe-uq-p4K"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="4sv-Tr-QmW" id="CQ5-6S-w2s"/>
+                        <outlet property="initalPasswordField" destination="r6Z-xL-vqb" id="e1l-ch-kEo"/>
+                        <outlet property="warningMessage" destination="7aD-S1-y8S" id="6yF-gz-Cz4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kF8-6c-h7I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

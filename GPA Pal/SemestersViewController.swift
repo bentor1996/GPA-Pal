@@ -26,6 +26,7 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         settingsImage.image = UIImage(named: "settings")
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.navigationItem.setHidesBackButton(true, animated:true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,6 +145,9 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
                 cvc.semester = semesters[(selectedIndex?.row)!]
             }
         }
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
     }
     
 

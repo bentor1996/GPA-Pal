@@ -18,7 +18,7 @@ class AddCourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "New Class"
+        self.title = "Add New Class"
     }
 
     override func didReceiveMemoryWarning() {

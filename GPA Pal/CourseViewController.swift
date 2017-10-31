@@ -20,7 +20,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Courses"
+        self.title = semester.value(forKey: "name") as? String
         settingsBtn.image = UIImage(named: "settings")
         print(semester)
         self.tableView.dataSource = self
@@ -73,6 +73,9 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                 avc.courses = self.courses
             }
         }
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
         // Pass the selected object to the new view controller.
     }
     

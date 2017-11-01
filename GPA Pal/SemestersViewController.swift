@@ -150,5 +150,4 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.backBarButtonItem = backItem
     }
     
-
 }

@@ -3,12 +3,14 @@ Implementation Contributions:
 
                         Contribution %  |    Tasks Completed
                         __________________________________________________________
-    Muhammad Ghauri:    |               | Add Course Controller, CourseTableViewCell
-    Omar Olivarez:      |               | Login and SignUp Controllers, Config File
-    Benjamin Torres:    |               | Created Storyboard, Semesters and Courses Controller, SemestersTableViewCell
+    Muhammad Ghauri:    |       25%     | Add Course Controller, CourseTableViewCell
+    Omar Olivarez:      |       25%     | Login and SignUp Controllers, Config File
+    Benjamin Torres:    |       50%     | Created Storyboard, Semesters and Courses Controller, SemestersTableViewCell
                         ----------------------------------------------------------
 
 Grading Level:
+Same Grade for all members.
+
 
 
 Differences:
@@ -17,6 +19,8 @@ Differences:
     3) We added a label in the Login screen to give warning messages when users provide the wrong input. We did this because it makes it more user friendly and alerts the user as to which error they created.
     4) We shortened the TableView within the Add Course View Controller. We did this so that the keyboard wouldn't block the user from seeing what they were typing as the input fields ran lower down on the screen
     5) We added a 'Save' button to the Add Course View Controller. We did added the button to make the process for adding courses feasible and to make the app more robust.
+    6) The View that displays the list of courses doesn't correctly display the course objects in this version.
 
 Special Instructions:
-    None
+
+

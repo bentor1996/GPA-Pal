@@ -17,12 +17,9 @@ extension String {
     }
 }
 
-class AddCourseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddCourseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    
-    
-    
-    
+    var semester = NSManagedObject()
     
     @IBOutlet weak var tableViewSections: UITableView!
     
@@ -50,9 +47,6 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-
-    
-    
     // this will initally be an empty list of Managed objects
     // This View Controller will need to create a new course object and append it to this list
     var courses = [NSManagedObject]()
@@ -65,8 +59,6 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableViewSections.delegate = self
         
     }
-
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -127,7 +119,6 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    
     func displayMessage (_message:String){
         
         self.alertController = UIAlertController(title: "Message", message: _message , preferredStyle: UIAlertControllerStyle.alert)
@@ -142,7 +133,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func btnSaveSectionsClicked(_ sender: Any) {
         
         var boolIsGood = true
-        for cellNum in 0 ... intRows {
+        for cellNum in 0 ... (intRows - 1) {
             let indexPath = IndexPath(row: cellNum, section: 0)
             let cell = tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell
             if (cell.txtName.text != "" || cell.txtWeight.text != ""){
@@ -161,11 +152,9 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
-        
-        
         if (boolIsGood){
             var sections = [NSManagedObject]()
-            for cellNum in 0 ... intRows {
+            for cellNum in 0 ... (intRows - 1){
                 let indexPath = IndexPath(row: cellNum, section: 0)
                 let cell = tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell
                 
@@ -179,8 +168,9 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 let section = NSManagedObject(entity: entity!, insertInto: managedContext)
                 
                 // Set the attribute values
-                section.setValue(cell.txttext, forKey: "name")
-                section.setValue([NSManagedObject](), forKey: "courses")
+                section.setValue(cell.txtName.text, forKey: "name")
+                section.setValue(Float(cell.txtWeight.text!), forKey: "weight")
+                section.setValue([NSManagedObject](), forKey: "assignments")
                 
                 // Commit the changes.
                 do {
@@ -193,18 +183,57 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 
                 // Add the new entity to our array of managed objects
-                semesters.append(semester)
-                
-                
-                
-                
-                
+                sections.append(section)
             }
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            // Create the entity we want to save
+            let entity =  NSEntityDescription.entity(forEntityName: "Course", in: managedContext)
+            
+            let course = NSManagedObject(entity: entity!, insertInto: managedContext)
+            
+            // Set the attribute values
+            course.setValue(Float(self.txtGradeGoal.text!), forKey: "gradeGoal")
+            course.setValue(Float(self.txtClassName.text!), forKey: "name")
+            course.setValue(Float(self.txtTotal.text!), forKey: "pointstotal")
+            if (self.segControlTotal.selectedSegmentIndex == 0){
+                course.setValue("Points", forKey: "totalType")}
+            else {
+                course.setValue("Percent", forKey: "totalType")
+            }
+            course.setValue(sections, forKey: "sections")
+            
+            // Commit the changes.
+            do {
+                try managedContext.save()
+            } catch {
+                // what to do if an error occurs?
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+            
+            // Add the new entity to our array of managed objects
+            courses.append(course)
+            semester.setValue(courses, forKey: "courses")
         }
-        
-        
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    //
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

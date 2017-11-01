@@ -62,7 +62,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -70,7 +69,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "toAddClass" {
             if let avc = segue.destination as? AddCourseViewController {
-                avc.courses = self.courses
+                avc.semester = semester
+                //avc.courses = semester.value(forKey: "courses") as! [NSManagedObject]
             }
         }
         let backItem = UIBarButtonItem()

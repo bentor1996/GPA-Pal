@@ -24,11 +24,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signIn(_ sender: Any) {
-        if (Config.password()==nil || (Config.username()==nil)){
+        if (UserDefaults.standard.object(forKey: "username")==nil || (UserDefaults.standard.object(forKey: "password")==nil)){
             warningMessage.text = "Please sign up to make an account with GPA Pal"
             self.warningMessage.isHidden = false
         } else{
-            if Config.username() == nil{
+            if UserDefaults.standard.object(forKey: "username") == nil{
                 warningMessage.text = "Please sign up to make an account with GPA Pal"
                 self.warningMessage.isHidden = false
             } else{

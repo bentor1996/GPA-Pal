@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var initalPasswordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
     @IBOutlet weak var warningMessage: UILabel!
@@ -24,7 +25,14 @@ class SignUpViewController: UIViewController {
     }
     
     func checkPassword()-> Bool {
-        if (initalPasswordField.text == confirmPasswordField.text){
+        if (initalPasswordField.text == confirmPasswordField.text) && (initalPasswordField.text != ""){
+            return true
+        } else {
+            return false
+        }
+    }
+    func checkUsername()-> Bool {
+        if (usernameField.text != ""){
             return true
         } else {
             return false
@@ -33,10 +41,17 @@ class SignUpViewController: UIViewController {
     
     @IBAction func createUser(_ sender: Any) {
         if (checkPassword()){
-            // create a user
-            Config.setPassword(confirmPasswordField.text!)
-            warningMessage.text = "New account created!"
-            self.warningMessage.isHidden = false
+            if checkUsername(){
+                // create a user
+                Config.setUsername(usernameField.text!)
+                Config.setPassword(confirmPasswordField.text!)
+                warningMessage.text = "New account created!"
+                self.warningMessage.isHidden = false
+            } else {
+                warningMessage.text = "Please create a username"
+                self.warningMessage.isHidden = false
+            }
+            
             
         } else{
             // change label and make them do it again

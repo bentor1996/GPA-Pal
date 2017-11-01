@@ -54,7 +54,6 @@
 		B580CA311FA6769500945EE6 = {
 			isa = PBXGroup;
 			children = (
-				B5E429481FA9554A0041DF1A /* Group4README */,
 				B580CA3C1FA6769500945EE6 /* GPA Pal */,
 				B580CA3B1FA6769500945EE6 /* Products */,
 			);
@@ -71,6 +70,7 @@
 		B580CA3C1FA6769500945EE6 /* GPA Pal */ = {
 			isa = PBXGroup;
 			children = (
+				B5E429481FA9554A0041DF1A /* Group4README */,
 				B580CA3D1FA6769500945EE6 /* AppDelegate.swift */,
 				B580CA521FA682FC00945EE6 /* LoginViewController.swift */,
 				B580CA541FA6849F00945EE6 /* SignUpViewController.swift */,

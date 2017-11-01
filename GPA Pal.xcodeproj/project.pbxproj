@@ -19,6 +19,7 @@
 		B580CA5F1FA68DDE00945EE6 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */; };
 		B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA601FA692D400945EE6 /* AddCourseViewController.swift */; };
 		B5E429491FA9554A0041DF1A /* Group4README in Resources */ = {isa = PBXBuildFile; fileRef = B5E429481FA9554A0041DF1A /* Group4README */; };
+		BF3AF74F1FA9688F00888E34 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */; };
 		E5A48A171FA8F42900435C02 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A48A161FA8F42900435C02 /* Config.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		B580CA601FA692D400945EE6 /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 		B5E429481FA9554A0041DF1A /* Group4README */ = {isa = PBXFileReference; lastKnownFileType = text; path = Group4README; sourceTree = "<group>"; };
+		BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		E5A48A161FA8F42900435C02 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				B580CA5A1FA689AE00945EE6 /* SemestersTableViewCell.swift */,
 				B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */,
 				B580CA601FA692D400945EE6 /* AddCourseViewController.swift */,
+				BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */,
 				E5A48A161FA8F42900435C02 /* Config.swift */,
 				B580CA411FA6769500945EE6 /* Main.storyboard */,
 				B580CA471FA6769500945EE6 /* Assets.xcassets */,
@@ -164,6 +167,7 @@
 				B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */,
 				B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */,
 				E5A48A171FA8F42900435C02 /* Config.swift in Sources */,
+				BF3AF74F1FA9688F00888E34 /* SectionTableViewCell.swift in Sources */,
 				B580CA461FA6769500945EE6 /* GPA_Pal.xcdatamodeld in Sources */,
 				B580CA551FA6849F00945EE6 /* SignUpViewController.swift in Sources */,
 				B580CA5B1FA689AE00945EE6 /* SemestersTableViewCell.swift in Sources */,

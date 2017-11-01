@@ -10,10 +10,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var warningMessage: UILabel!
+    @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
+        self.warningMessage.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,10 +24,26 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signIn(_ sender: Any) {
-        if(password.text == Config.password()){
-            self.performSegue(withIdentifier: "toSemesters", sender: self)
-        } else {
-            print("Wrong password")
+        if (UserDefaults.standard.object(forKey: "username")==nil || (UserDefaults.standard.object(forKey: "password")==nil)){
+            warningMessage.text = "Please sign up to make an account with GPA Pal"
+            self.warningMessage.isHidden = false
+        } else{
+            if UserDefaults.standard.object(forKey: "username") == nil{
+                warningMessage.text = "Please sign up to make an account with GPA Pal"
+                self.warningMessage.isHidden = false
+            } else{
+                if(usernameField.text == Config.username()){
+                    if(password.text == Config.password()){
+                        self.performSegue(withIdentifier: "toSemesters", sender: self)
+                    } else {
+                        warningMessage.text = "Please enter the correct password"
+                        self.warningMessage.isHidden = false
+                    }
+                } else {
+                    warningMessage.text = "Please enter the correct username"
+                    self.warningMessage.isHidden = false
+                }
+            }
         }
     }
     

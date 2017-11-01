@@ -17,9 +17,14 @@ extension String {
     }
 }
 
-class AddCourseViewController: UIViewController {
+class AddCourseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    
+    
+    
+    
+    @IBOutlet weak var tableViewSections: UITableView!
     
     @IBOutlet weak var txtClassName: UITextField!
     @IBOutlet weak var segControlTotal: UISegmentedControl!
@@ -28,6 +33,24 @@ class AddCourseViewController: UIViewController {
     @IBOutlet weak var txtNumSections: UITextField!
     
     var alertController: UIAlertController!
+    
+    var intRows = 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return intRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath) as! SectionTableViewCell
+        
+        cell.lblSectionNumber.text = "Section " + String(indexPath.row + 1)
+        //let lastName = candidate.value(forKey: "lastName") as? String
+        //cell.detailTextLabel!.text = candidate.value(forKey: "party") as? String
+        
+        return cell
+    }
+    
+
     
     
     // this will initally be an empty list of Managed objects
@@ -38,6 +61,9 @@ class AddCourseViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Add New Class"
+        self.tableViewSections.dataSource = self
+        self.tableViewSections.delegate = self
+        
     }
 
     
@@ -74,6 +100,8 @@ class AddCourseViewController: UIViewController {
                         
                         if (txtTotal.text!.isNumeric){
                             //GOOD
+                            intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
+                            self.tableViewSections.reloadData()
                         }
                         else {
                             displayMessage(_message: "Make sure your total points is a whole number")
@@ -81,6 +109,8 @@ class AddCourseViewController: UIViewController {
                     }
                     else {
                         //GOOD
+                        intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
+                        self.tableViewSections.reloadData()
                     }
                     
                 }
@@ -111,6 +141,66 @@ class AddCourseViewController: UIViewController {
     
     @IBAction func btnSaveSectionsClicked(_ sender: Any) {
         
+        var boolIsGood = true
+        for cellNum in 0 ... intRows {
+            let indexPath = IndexPath(row: cellNum, section: 0)
+            let cell = tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell
+            if (cell.txtName.text != "" || cell.txtWeight.text != ""){
+                if (cell.txtWeight.text!.isNumeric) {
+
+                }
+                else{
+                    displayMessage(_message: "Have a whole number for your weight")
+                    boolIsGood = false
+                }
+            }
+            else {
+                
+                displayMessage(_message: "Fill in all fields")
+                boolIsGood = false
+            }
+        }
+        
+        
+        
+        if (boolIsGood){
+            var sections = [NSManagedObject]()
+            for cellNum in 0 ... intRows {
+                let indexPath = IndexPath(row: cellNum, section: 0)
+                let cell = tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                let managedContext = appDelegate.persistentContainer.viewContext
+                
+                // Create the entity we want to save
+                let entity =  NSEntityDescription.entity(forEntityName: "Section", in: managedContext)
+                
+                let section = NSManagedObject(entity: entity!, insertInto: managedContext)
+                
+                // Set the attribute values
+                section.setValue(cell.txttext, forKey: "name")
+                section.setValue([NSManagedObject](), forKey: "courses")
+                
+                // Commit the changes.
+                do {
+                    try managedContext.save()
+                } catch {
+                    // what to do if an error occurs?
+                    let nserror = error as NSError
+                    NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
+                
+                // Add the new entity to our array of managed objects
+                semesters.append(semester)
+                
+                
+                
+                
+                
+            }
+        }
         
         
     }

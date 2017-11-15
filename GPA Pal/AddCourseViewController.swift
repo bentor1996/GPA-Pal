@@ -19,7 +19,8 @@ extension String {
 
 class AddCourseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    var semester = NSManagedObject()
+    var semester: NSManagedObject?
+    var semesterID: NSManagedObjectID?
     
     @IBOutlet weak var tableViewSections: UITableView!
     
@@ -49,7 +50,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // this will initally be an empty list of Managed objects
     // This View Controller will need to create a new course object and append it to this list
-    var courses = [NSManagedObject]()
+    var courses: [NSManagedObject]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,14 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        semester = getSemesterWithID(semesterID: semesterID!)
+        
+        courses = semester?.value(forKey: "courses") as? [NSManagedObject]
+        
     }
     
     @IBAction func segControlChange(_ sender: Any) {
@@ -153,24 +162,33 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         if (boolIsGood){
-            var sections = [NSManagedObject]()
+            //var sections: [NSManagedObject]?
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            let entity =  NSEntityDescription.entity(forEntityName: "Course", in: managedContext)
+            
+            let course = NSManagedObject(entity: entity!, insertInto: managedContext)
+            
             for cellNum in 0 ... (intRows - 1){
                 let indexPath = IndexPath(row: cellNum, section: 0)
                 let cell = tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell
                 
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                //let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 
-                let managedContext = appDelegate.persistentContainer.viewContext
+                //let managedContext = appDelegate.persistentContainer.viewContext
                 
                 // Create the entity we want to save
-                let entity =  NSEntityDescription.entity(forEntityName: "Section", in: managedContext)
+                let entity2 =  NSEntityDescription.entity(forEntityName: "Section", in: managedContext)
                 
-                let section = NSManagedObject(entity: entity!, insertInto: managedContext)
+                let section = NSManagedObject(entity: entity2!, insertInto: managedContext)
                 
                 // Set the attribute values
                 section.setValue(cell.txtName.text, forKey: "name")
                 section.setValue(Float(cell.txtWeight.text!), forKey: "weight")
-                section.setValue([NSManagedObject](), forKey: "assignments")
+                //section.setValue([NSManagedObject](), forKey: "assignments")
+                course.mutableSetValue(forKey: "sectionList").add(section)
                 
                 // Commit the changes.
                 do {
@@ -183,17 +201,15 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 }
                 
                 // Add the new entity to our array of managed objects
-                sections.append(section)
+                //sections!.append(section)
             }
             
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            //let appDelegate = UIApplication.shared.delegate as! AppDelegate
             
-            let managedContext = appDelegate.persistentContainer.viewContext
+            //let managedContext = appDelegate.persistentContainer.viewContext
             
             // Create the entity we want to save
-            let entity =  NSEntityDescription.entity(forEntityName: "Course", in: managedContext)
             
-            let course = NSManagedObject(entity: entity!, insertInto: managedContext)
             
             // Set the attribute values
             course.setValue(Float(self.txtGradeGoal.text!), forKey: "gradeGoal")
@@ -204,7 +220,11 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
             else {
                 course.setValue("Percent", forKey: "totalType")
             }
-            course.setValue(sections, forKey: "sections")
+            //course.setValue(sections, forKey: "sections")
+            
+            // Add the new entity to our array of managed objects
+            courses?.append(course)
+            //semester?.setValue(courses, forKey: "courses")
             
             // Commit the changes.
             do {
@@ -216,10 +236,11 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 abort()
             }
             
-            // Add the new entity to our array of managed objects
-            courses.append(course)
-            semester.setValue(courses, forKey: "courses")
+            addCourseToSemester(semesterID: semesterID!, courseList: course)
+           
         }
+        
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

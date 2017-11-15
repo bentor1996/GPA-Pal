@@ -14,7 +14,7 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var newSemesterPop: UIAlertController? = nil
     var semesterName: UITextField? = nil
-    var semesters = [NSManagedObject]()
+    var semesters: [NSManagedObject]?
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,7 +37,10 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        semesters = getAllSemesters()
+        
+        
+        /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
@@ -58,7 +61,7 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
             semesters = results
         } else {
             print("Could not fetch")
-        }
+        }*/
     }
     
     @IBAction func addNewSemester(_ sender: Any) {
@@ -99,7 +102,7 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         
         // Set the attribute values
         semester.setValue(semesterName?.text, forKey: "name")
-        semester.setValue([NSManagedObject](), forKey: "courses")
+        //semester.setValue([NSManagedObject](), forKey: "courses")
         
         // Commit the changes.
         do {
@@ -112,7 +115,7 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         // Add the new entity to our array of managed objects
-        semesters.append(semester)
+        semesters?.append(semester)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,13 +123,13 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.semesters.count
+        return self.semesters!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "semesterCell", for: indexPath) as! SemestersTableViewCell
         
-        let semester = semesters[indexPath.row]
+        let semester = semesters![indexPath.row]
         let name = semester.value(forKey: "name") as? String
         //let lastName = candidate.value(forKey: "lastName") as? String
         cell.semesterName!.text = name
@@ -142,7 +145,8 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         if segue.identifier == "toAllClass" {
             if let cvc = segue.destination as? CourseViewController {
                 let selectedIndex = tableView.indexPathForSelectedRow
-                cvc.semester = semesters[(selectedIndex?.row)!]
+                //cvc.semester = semesters[(selectedIndex?.row)!]
+                cvc.semesterID = semesters![(selectedIndex?.row)!].objectID
             }
         }
         let backItem = UIBarButtonItem()

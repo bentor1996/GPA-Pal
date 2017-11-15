@@ -13,16 +13,16 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
    
     @IBOutlet weak var tableView: UITableView!
     
-    var semester = NSManagedObject()
-    var courses = [NSManagedObject]()
+    var semester: NSManagedObject?
+    var semesterID: NSManagedObjectID?
+    var courses: [NSManagedObject]?
 
     @IBOutlet weak var settingsBtn: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = semester.value(forKey: "name") as? String
+        //self.title = semester.value(forKey: "name") as? String
         settingsBtn.image = UIImage(named: "settings")
-        print(semester)
         self.tableView.dataSource = self
         self.tableView.delegate = self
         // Do any additional setup after loading the view.
@@ -36,7 +36,12 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.courses = semester.value(forKey: "courses") as! [NSManagedObject]
+        semester = getSemesterWithID(semesterID: semesterID!)
+        self.title = semester?.value(forKey: "name") as? String
+        
+        //self.courses = semester?.value(forKey: "courses") as? [NSManagedObject]
+        self.courses = getCourseList(semester: semester!)
+        print(courses!)
         self.tableView.reloadData()
         
     }
@@ -46,13 +51,13 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.courses.count
+        return self.courses!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath)
         
-        let course = courses[indexPath.row]
+        let course = courses![indexPath.row]
         let name = course.value(forKey: "name") as? String
         let grade = course.value(forKey: "grade") as? Float
         
@@ -69,7 +74,8 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "toAddClass" {
             if let avc = segue.destination as? AddCourseViewController {
-                avc.semester = semester
+                //avc.semester = semester
+                avc.semesterID = semesterID!
                 //avc.courses = semester.value(forKey: "courses") as! [NSManagedObject]
             }
         }

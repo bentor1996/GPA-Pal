@@ -55,14 +55,20 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! CourseListTableViewCell
         
         let course = courses![indexPath.row]
         let name = course.value(forKey: "name") as? String
         let grade = course.value(forKey: "grade") as? Float
         
-        cell.textLabel!.text = name
-        cell.detailTextLabel!.text = String(describing: grade)
+        cell.courseName!.text = name
+        if grade == nil {
+            cell.courseGrade!.text = "0"
+        } else {
+            cell.courseGrade!.text = String(describing: grade!)
+        }
+        
+        //cell.detailTextLabel!.text = String(describing: grade)
         
         return cell
     }

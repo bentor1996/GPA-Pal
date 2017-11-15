@@ -22,6 +22,10 @@
 		B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA601FA692D400945EE6 /* AddCourseViewController.swift */; };
 		B5E429491FA9554A0041DF1A /* Group4README in Resources */ = {isa = PBXBuildFile; fileRef = B5E429481FA9554A0041DF1A /* Group4README */; };
 		BF3AF74F1FA9688F00888E34 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */; };
+		E59672411FBBDD0400D02F55 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */; };
+		E59672431FBBDE4A00D02F55 /* GoalReacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */; };
+		E59672451FBBDF8800D02F55 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */; };
+		E59672481FBBDFC200D02F55 /* AddNewGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672471FBBDFC200D02F55 /* AddNewGradeViewController.swift */; };
 		E5A48A171FA8F42900435C02 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A48A161FA8F42900435C02 /* Config.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,10 @@
 		B580CA601FA692D400945EE6 /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 		B5E429481FA9554A0041DF1A /* Group4README */ = {isa = PBXFileReference; lastKnownFileType = text; path = Group4README; sourceTree = "<group>"; };
 		BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
+		E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
+		E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalReacherViewController.swift; sourceTree = "<group>"; };
+		E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
+		E59672471FBBDFC200D02F55 /* AddNewGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGradeViewController.swift; sourceTree = "<group>"; };
 		E5A48A161FA8F42900435C02 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +93,10 @@
 				B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */,
 				B580CA601FA692D400945EE6 /* AddCourseViewController.swift */,
 				BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */,
+				E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */,
+				E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */,
+				E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */,
+				E59672471FBBDFC200D02F55 /* AddNewGradeViewController.swift */,
 				E5A48A161FA8F42900435C02 /* Config.swift */,
 				B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */,
 				B512D9841FBBD81C001027F4 /* CourseListTableViewCell.swift */,
@@ -180,8 +192,12 @@
 				B580CA551FA6849F00945EE6 /* SignUpViewController.swift in Sources */,
 				B580CA5B1FA689AE00945EE6 /* SemestersTableViewCell.swift in Sources */,
 				B580CA571FA6862700945EE6 /* SemestersViewController.swift in Sources */,
+				E59672411FBBDD0400D02F55 /* SectionTableViewController.swift in Sources */,
 				B580CA3E1FA6769500945EE6 /* AppDelegate.swift in Sources */,
+				E59672451FBBDF8800D02F55 /* CourseDetailsViewController.swift in Sources */,
+				E59672431FBBDE4A00D02F55 /* GoalReacherViewController.swift in Sources */,
 				B580CA5F1FA68DDE00945EE6 /* CourseViewController.swift in Sources */,
+				E59672481FBBDFC200D02F55 /* AddNewGradeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

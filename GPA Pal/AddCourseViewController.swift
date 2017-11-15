@@ -213,7 +213,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
             
             // Set the attribute values
             course.setValue(Float(self.txtGradeGoal.text!), forKey: "gradeGoal")
-            course.setValue(Float(self.txtClassName.text!), forKey: "name")
+            course.setValue(self.txtClassName.text!, forKey: "name")
             course.setValue(Float(self.txtTotal.text!), forKey: "pointstotal")
             if (self.segControlTotal.selectedSegmentIndex == 0){
                 course.setValue("Points", forKey: "totalType")}
@@ -235,7 +235,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
-            
+            print(course)
             addCourseToSemester(semesterID: semesterID!, courseList: course)
            
         }

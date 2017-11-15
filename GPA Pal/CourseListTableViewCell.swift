@@ -10,6 +10,10 @@ import UIKit
 
 class CourseListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var courseName: UILabel!
+    
+    @IBOutlet weak var courseGrade: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

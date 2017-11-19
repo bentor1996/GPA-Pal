@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class SectionTableViewController: UITableViewController {
-
+    var course: NSManagedObject?
+    var courseID: NSManagedObjectID?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +37,14 @@ class SectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        section = getSectionWithID(sectionID: sectionID!)
+        self.title = section?.value(forKey: "name") as? String
+        self.assignments = getAssignmentList(section: section!)
+        self.tableView.reloadData()
     }
 
     /*

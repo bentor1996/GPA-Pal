@@ -16,6 +16,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
     var semester: NSManagedObject?
     var semesterID: NSManagedObjectID?
     var courses: [NSManagedObject]?
+    var courseID: NSManagedObjectID?
 
     @IBOutlet weak var settingsBtn: UIImageView!
     
@@ -83,6 +84,11 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                 //avc.semester = semester
                 avc.semesterID = semesterID!
                 //avc.courses = semester.value(forKey: "courses") as! [NSManagedObject]
+            }
+        }
+        if segue.identifier == "toCourseDetailsView"{
+            if let avc = segue.destination as? CourseDetailsViewController {
+                avc.courseID = courseID!
             }
         }
         let backItem = UIBarButtonItem()

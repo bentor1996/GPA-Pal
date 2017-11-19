@@ -37,6 +37,7 @@ func getAllSemesters() -> [NSManagedObject] {
     }
 }
 
+//get semester object from ID
 func getSemesterWithID(semesterID: NSManagedObjectID) -> NSManagedObject {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     

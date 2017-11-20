@@ -85,10 +85,12 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                 avc.semesterID = semesterID!
                 //avc.courses = semester.value(forKey: "courses") as! [NSManagedObject]
             }
-        }
-        if segue.identifier == "toCourseDetailsView"{
-            if let avc = segue.destination as? CourseDetailsViewController {
-                avc.courseID = courseID!
+        } else if segue.identifier == "toCourseDetailsView" {
+            if let cdvc = segue.destination as? CourseDetailsViewController {
+                let selectedIndex = tableView.indexPathForSelectedRow
+                print(courses![(selectedIndex?.row)!].objectID)
+                cdvc.courseID = courses![(selectedIndex?.row)!].objectID
+                //avc.courseID = courseID!
             }
         }
         let backItem = UIBarButtonItem()

@@ -10,11 +10,15 @@ import UIKit
 import CoreData
 
 class SectionTableViewController: UITableViewController {
-    var course: NSManagedObject?
-    var courseID: NSManagedObjectID?
+    var section: NSManagedObject?
+    var sectionID: NSManagedObjectID?
+    var assignments: [NSManagedObject]?
+    var assignmentID: NSManagedObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,11 +37,6 @@ class SectionTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,6 +44,11 @@ class SectionTableViewController: UITableViewController {
         self.title = section?.value(forKey: "name") as? String
         self.assignments = getAssignmentList(section: section!)
         self.tableView.reloadData()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
     /*

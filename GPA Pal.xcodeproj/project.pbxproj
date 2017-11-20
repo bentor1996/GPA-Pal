@@ -27,6 +27,7 @@
 		E59672451FBBDF8800D02F55 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */; };
 		E59672481FBBDFC200D02F55 /* AddNewGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672471FBBDFC200D02F55 /* AddNewGradeViewController.swift */; };
 		E5A4709D1FC2503A0043247C /* SectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4709C1FC2503A0043247C /* SectionConfig.swift */; };
+		E5A4709F1FC25B950043247C /* CourseDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4709E1FC25B950043247C /* CourseDetailsTableViewCell.swift */; };
 		E5A48A171FA8F42900435C02 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A48A161FA8F42900435C02 /* Config.swift */; };
 		E5BA3B101FC0F225003DF7B2 /* CourseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA3B0F1FC0F225003DF7B2 /* CourseConfig.swift */; };
 		E5BA3B121FC240FD003DF7B2 /* SectionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA3B111FC240FD003DF7B2 /* SectionListTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		E59672471FBBDFC200D02F55 /* AddNewGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGradeViewController.swift; sourceTree = "<group>"; };
 		E5A4709C1FC2503A0043247C /* SectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionConfig.swift; sourceTree = "<group>"; };
+		E5A4709E1FC25B950043247C /* CourseDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		E5A48A161FA8F42900435C02 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E5BA3B0F1FC0F225003DF7B2 /* CourseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConfig.swift; sourceTree = "<group>"; };
 		E5BA3B111FC240FD003DF7B2 /* SectionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,11 +100,12 @@
 				B580CA5A1FA689AE00945EE6 /* SemestersTableViewCell.swift */,
 				B580CA5E1FA68DDE00945EE6 /* CourseViewController.swift */,
 				E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */,
+				E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */,
 				B512D9841FBBD81C001027F4 /* CourseListTableViewCell.swift */,
 				E5BA3B111FC240FD003DF7B2 /* SectionListTableViewCell.swift */,
+				E5A4709E1FC25B950043247C /* CourseDetailsTableViewCell.swift */,
 				B580CA601FA692D400945EE6 /* AddCourseViewController.swift */,
 				BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */,
-				E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */,
 				E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */,
 				E59672471FBBDFC200D02F55 /* AddNewGradeViewController.swift */,
 				E5A48A161FA8F42900435C02 /* Config.swift */,
@@ -193,6 +196,7 @@
 			files = (
 				B512D9851FBBD81C001027F4 /* CourseListTableViewCell.swift in Sources */,
 				B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */,
+				E5A4709F1FC25B950043247C /* CourseDetailsTableViewCell.swift in Sources */,
 				B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */,
 				E5A4709D1FC2503A0043247C /* SectionConfig.swift in Sources */,
 				E5A48A171FA8F42900435C02 /* Config.swift in Sources */,

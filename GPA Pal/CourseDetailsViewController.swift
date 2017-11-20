@@ -16,13 +16,13 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
     @IBAction func goalReachButton(_ sender: Any) {
         self.performSegue(withIdentifier: "toGoalReacher", sender: self)
     }
-    @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var sectionType: UILabel!
-    @IBOutlet weak var sectionGrade: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
+    
     var course: NSManagedObject?
     var courseID: NSManagedObjectID?
     var sections: [NSManagedObject]?
+    var sectionID: NSManagedObjectID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         return self.sections!.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath) as! SectionListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath) as! CourseDetailsTableViewCell
         let section = sections![indexPath.row]
         let name = section.value(forKey: "name") as? String
         let grade = section.value(forKey: "grade") as? Float
@@ -65,7 +65,6 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -73,16 +72,14 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         if segue.identifier == "toSectionTableView"{
             if let avc = segue.destination as? SectionTableViewController {
                 let selectedIndex = tableView.indexPathForSelectedRow
-                //cvc.semester = semesters[(selectedIndex?.row)!]
-                avc.semesterID = semesters![(selectedIndex?.row)!].objectID
-                //avc.courseID = courseID!
+                avc.sectionID = sections![(selectedIndex?.row)!].objectID
             }
         }
         if segue.identifier == "toAddNewGrade"{
             if let avc = segue.destination as? AddNewGradeViewController {
                 let selectedIndex = tableView.indexPathForSelectedRow
                 //cvc.semester = semesters[(selectedIndex?.row)!]
-                avc.semesterID = semesters![(selectedIndex?.row)!].objectID
+                avc.sectionID = sections![(selectedIndex?.row)!].objectID
                 //avc.courseID = courseID!
             }
         }
@@ -90,6 +87,4 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
     }
-    
-
 }

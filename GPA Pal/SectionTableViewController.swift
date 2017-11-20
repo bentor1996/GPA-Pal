@@ -19,22 +19,12 @@ class SectionTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 0
     }
     
@@ -47,8 +37,21 @@ class SectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.assignments!.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath) as! UITableViewCell?
+        let assignment = assignments![indexPath.row]
+        let name = assignment.value(forKey: "name") as? String
+        let grade = assignment.value(forKey: "grade") as? Float
+        cell?.textLabel!.text = name
+        if grade == nil {
+            cell?.detailTextLabel!.text = "0"
+        } else {
+            cell?.detailTextLabel!.text = String(describing: grade!)
+        }
+        return cell!
     }
 
     /*

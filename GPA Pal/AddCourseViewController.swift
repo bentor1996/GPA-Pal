@@ -174,10 +174,19 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
-        if (pointsTotal != Int(txtTotal.text!)) {
-            displayMessage(_message: "Make sure that your total section points add up to the total specified above")
-            return
+        if (segControlTotal.selectedSegmentIndex == 0) {
+            if (pointsTotal != Int(txtTotal.text!)) {
+                displayMessage(_message: "Make sure that your total section points add up to the total specified above")
+                return
+            }
         }
+        else if (segControlTotal.selectedSegmentIndex == 1) {
+            if (pointsTotal != 100) {
+                displayMessage(_message: "Make sure that your total section points add up to 100")
+                return
+            }
+        }
+        
         
         if (boolIsGood){
             
@@ -276,8 +285,9 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 boolIsGood = false
                 return
             }
-            self.alertController!.addAction(OKAction)
             self.alertController!.addAction(cancelAction)
+            self.alertController!.addAction(OKAction)
+            
             self.present(self.alertController!, animated: true, completion:nil)
            
         }

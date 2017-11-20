@@ -541,9 +541,9 @@
                         <viewLayoutGuide key="safeArea" id="pha-Jc-cfd"/>
                     </view>
                     <connections>
-                        <outlet property="gradeLabel" destination="cI2-kI-uox" id="Iac-hJ-pjx"/>
-                        <outlet property="nameLabel" destination="2Q0-bi-siU" id="aim-My-tBb"/>
-                        <outlet property="picker" destination="ql3-Jx-EDg" id="lfQ-EX-zzB"/>
+                        <outlet property="gradeLabel" destination="cI2-kI-uox" id="qRw-bI-yOd"/>
+                        <outlet property="nameLabel" destination="2Q0-bi-siU" id="QFI-cR-qzZ"/>
+                        <outlet property="picker" destination="ql3-Jx-EDg" id="tgK-o1-w4P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPc-C9-5oN" userLabel="First Responder" sceneMemberID="firstResponder"/>

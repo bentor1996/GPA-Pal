@@ -71,7 +71,7 @@ func getSectionList(course: NSManagedObject) -> [NSManagedObject] {
     var SectionList = [NSManagedObject]()
     
     for section in SectionSet {
-        SectionList.append(course as! NSManagedObject)
+        SectionList.append(section as! NSManagedObject)
     }
     
     if SectionSet.count == 0 {
@@ -79,8 +79,18 @@ func getSectionList(course: NSManagedObject) -> [NSManagedObject] {
     } else {
         return SectionList
     }
-    
 }
+/*
+func getCourseGoal(course: NSManagedObject) -> String {
+    let courseGoal = course.value(forKey: "gradeGoal") as? String
+    print(courseGoal)
+    if courseGoal != nil {
+        return courseGoal!
+    } else {
+        let cg = "-"
+        return cg
+    }
+}*/
 
 
 

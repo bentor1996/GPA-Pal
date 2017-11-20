@@ -21,6 +21,14 @@ class GoalReacherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func calculateRequiredGrade() -> Float {
+        // get all the different sections
+        // get the weights for those sections
+        // get all the grades for 
+        
+        return 0.0
+    }
+    
 
     /*
     // MARK: - Navigation

@@ -10,9 +10,11 @@ import UIKit
 import CoreData
 
 class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBAction func addGradeButton(_ sender: Any) {
+    @IBOutlet weak var goalLabel: UILabel!
+    
+    /*@IBAction func addGradeButton(_ sender: Any) {
         self.performSegue(withIdentifier: "toAddNewGrade", sender: self)
-    }
+    }*/
     @IBAction func goalReachButton(_ sender: Any) {
         self.performSegue(withIdentifier: "toGoalReacher", sender: self)
     }
@@ -20,6 +22,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     
     var course: NSManagedObject?
+    var tempcourse: NSManagedObject?
     var courseID: NSManagedObjectID?
     var sections: [NSManagedObject]?
     var sectionID: NSManagedObjectID?
@@ -28,7 +31,12 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        // Do any additional setup after loading the view.
+        tempcourse = getCourseWithID(courseID: courseID!)
+        //self.goalLabel.text = getCourseGoal(course: tempcourse!)
+        let gradeGoal = self.tempcourse?.value(forKey: "gradeGoal")
+        self.goalLabel.text =  String(describing: gradeGoal!)
+        print(tempcourse!)
+        print(self.tempcourse?.value(forKey: "gradeGoal") as? String!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +49,6 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         course = getCourseWithID(courseID: courseID!)
         self.title = course?.value(forKey: "name") as? String
         self.sections = getSectionList(course: course!)
-        print(sections!)
         self.tableView.reloadData()
     }
     
@@ -55,7 +62,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath) as! CourseDetailsTableViewCell
         let section = sections![indexPath.row]
         let name = section.value(forKey: "name") as? String
-        let grade = section.value(forKey: "grade") as? Float
+        let grade = section.value(forKey: "weight") as? Float
         cell.sectionType!.text = name
         if grade == nil {
             cell.sectionGrade!.text = "0"
@@ -76,10 +83,10 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         if segue.identifier == "toAddNewGrade"{
-            if let avc = segue.destination as? AddNewGradeViewController {
+            if let angvc = segue.destination as? AddNewGradeViewController {
                 let selectedIndex = tableView.indexPathForSelectedRow
                 //cvc.semester = semesters[(selectedIndex?.row)!]
-                avc.sectionID = sections![(selectedIndex?.row)!].objectID
+                angvc.courseID = courseID
                 //avc.courseID = courseID!
             }
         }

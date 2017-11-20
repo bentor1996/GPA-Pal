@@ -285,8 +285,9 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 boolIsGood = false
                 return
             }
-            self.alertController!.addAction(OKAction)
             self.alertController!.addAction(cancelAction)
+            self.alertController!.addAction(OKAction)
+            
             self.present(self.alertController!, animated: true, completion:nil)
            
         }

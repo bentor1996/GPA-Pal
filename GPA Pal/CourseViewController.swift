@@ -43,7 +43,6 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         self.courses = getCourseList(semester: semester!)
         print(courses!)
         self.tableView.reloadData()
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class AddNewGradeViewController: UIViewController {
-
+    var section: NSManagedObject?
+    var sectionID: NSManagedObjectID?
     override func viewDidLoad() {
         super.viewDidLoad()
 

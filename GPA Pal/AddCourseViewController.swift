@@ -95,25 +95,31 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         if (txtGradeGoal.text! != "" || txtNumSections.text! != "" || txtClassName.text! != "" || (txtTotal.text! != "" && segControlTotal.selectedSegmentIndex == 0)){
             if (txtGradeGoal.text!.isNumeric) {
                 if (txtNumSections.text!.isNumeric) {
-                    
-                    
                     if (segControlTotal.selectedSegmentIndex == 0) {
-                        
-                        if (txtTotal.text!.isNumeric){
+                        if (txtTotal.text!.isNumeric) {
+                            if (Int(txtGradeGoal.text!)! <= Int(txtTotal.text!)!){
                             //GOOD
                             intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
                             self.tableViewSections.reloadData()
+                            }
+                            else {
+                                displayMessage(_message: "Grade goal must be less than or equal to total points")
+                            }
                         }
                         else {
                             displayMessage(_message: "Make sure your total points is a whole number")
                         }
                     }
                     else {
-                        //GOOD
-                        intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
-                        self.tableViewSections.reloadData()
+                        if (Int(txtGradeGoal.text!)! <= 100) {
+                            //GOOD
+                            intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
+                            self.tableViewSections.reloadData()
+                        }
+                        else {
+                            displayMessage(_message: "Make sure your grade goal is less than or equal to 100")
+                        }
                     }
-                    
                 }
                 else {
                     displayMessage(_message: "Enter a whole number for sections")
@@ -144,6 +150,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func btnSaveSectionsClicked(_ sender: Any) {
         
         var boolIsGood = true
+        var pointsTotal = 0
         for cellNum in 0 ... (intRows - 1) {
             let indexPath = IndexPath(row: cellNum, section: 0)
             guard (tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell?) != nil
@@ -154,6 +161,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
             let cell = tableViewSections.cellForRow(at: indexPath) as! SectionTableViewCell
             if (cell.txtName.text != "" && cell.txtWeight.text != ""){
                 if (cell.txtWeight.text!.isNumeric) {
+                    pointsTotal += Int(cell.txtWeight.text!)!
                 }
                 else{
                     displayMessage(_message: "Have a whole number for your weight")
@@ -164,6 +172,11 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 displayMessage(_message: "Fill in all fields")
                 boolIsGood = false
             }
+        }
+        
+        if (pointsTotal != Int(txtTotal.text!)) {
+            displayMessage(_message: "Make sure that your total section points add up to the total specified above")
+            return
         }
         
         if (boolIsGood){
@@ -223,11 +236,14 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                 // Set the attribute values
                 course.setValue(Float(self.txtGradeGoal.text!), forKey: "gradeGoal")
                 course.setValue(self.txtClassName.text!, forKey: "name")
-                course.setValue(Float(self.txtTotal.text!), forKey: "pointstotal")
+                
                 if (self.segControlTotal.selectedSegmentIndex == 0){
-                    course.setValue("Points", forKey: "totalType")}
+                    course.setValue("Points", forKey: "totalType")
+                    course.setValue(Float(self.txtTotal.text!), forKey: "pointstotal")
+                }
                 else {
                     course.setValue("Percent", forKey: "totalType")
+                    course.setValue(Float(100), forKey: "pointstotal")
                 }
                 //course.setValue(sections, forKey: "sections")
                 

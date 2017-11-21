@@ -11,6 +11,7 @@ import CoreData
 
 class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var settingsBtn: UIImageView!
     
     /*@IBAction func addGradeButton(_ sender: Any) {
         self.performSegue(withIdentifier: "toAddNewGrade", sender: self)
@@ -31,6 +32,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        settingsBtn.image = UIImage(named: "settings")
         tempcourse = getCourseWithID(courseID: courseID!)
         //self.goalLabel.text = getCourseGoal(course: tempcourse!)
         let gradeGoal = self.tempcourse?.value(forKey: "gradeGoal")
@@ -90,8 +92,9 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
                 //avc.courseID = courseID!
             }
         }
+        
         if segue.identifier == "toGoalReacher"{
-            if let grvc = segue.destination as? AddNewGradeViewController {
+            if let grvc = segue.destination as? GoalReacherViewController {
                 grvc.courseID = courseID
             }
         }

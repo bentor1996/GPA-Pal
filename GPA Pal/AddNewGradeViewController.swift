@@ -143,6 +143,12 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
             let average = total/assignmentList.count
             setSectionAverage(section: selectedSection!, average: Float(average))
+            
+            // calculate and assign the course average with a new function
+            calculateCourseAverage()
+            // set the new course average
+            //setCourseAverage(course: course!, average: Float(averageForCourse))
+            
             print("Percent, Done new average is \(average)")
         } else {
             var total = 0
@@ -154,8 +160,30 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let weight = selectedSection?.value(forKey: "weight") as! Float
             let average = (Float(total)/weight) * 100
             setSectionAverage(section: selectedSection!, average: Float(average))
+            
+            // set the new course average
+            calculateCourseAverage()
+            
             print("number, new average is \(average)")
         }
+    }
+    
+    func calculateCourseAverage() {
+        // calculate average for % system
+        var currentGrade = 0.0
+        if course?.value(forKey: "totalType") as? String == "Percent" {
+            for sec in sections! {
+                currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/100)
+            }
+        } else {
+            for sec in sections! {
+                currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/100)
+            }
+        }
+        print("NEW COURSE AVERAGE")
+        print(currentGrade)
+        setCourseAverage(course: course!, average: Float(currentGrade))
+        print(currentGrade)
     }
     
     func displayMessage (_message:String){

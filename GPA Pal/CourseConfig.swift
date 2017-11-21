@@ -94,6 +94,22 @@ func getCourseGoal(course: NSManagedObject) -> String {
 
 
 
+func setCourseAverage(course: NSManagedObject, average: Float) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let managedContext = appDelegate.persistentContainer.viewContext
+    course.setValue(average, forKey: "grade")
+    do {
+        try managedContext.save()
+    } catch {
+        // what to do if an error occurs?
+        let nserror = error as NSError
+        NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+        abort()
+    }
+}
+
+
+
 
 
 

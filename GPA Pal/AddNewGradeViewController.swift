@@ -65,7 +65,42 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func bttnSaved(_ sender: Any) {
-        addNewAssignment()
+        if nameLabel.text! == "" || gradeLabel.text! == "" {
+            displayMessage(_message: "Enter an assignment name and grade to add a grade.")
+        } else if (gradeLabel.text?.isNumeric)! == false {
+            displayMessage(_message: "Enter a number for the grade.")
+        } else {
+            if course?.value(forKey: "totalType") as? String == "Percent" {
+                if (Int(gradeLabel.text!)!) >= 0 && (Int(gradeLabel.text!)!) <= 100 {
+                    YouSure()
+                } else {
+                    displayMessage(_message: "Enter a grade between 0 and 100.")
+                }
+            } else {
+                if (Int(gradeLabel.text!)!) >= 0 && (Int(gradeLabel.text!)!) <= Int((selectedSection?.value(forKey: "weight") as? Float)!) {
+                    YouSure()
+                } else {
+                    displayMessage(_message: "Enter a grade between 0 and \((selectedSection?.value(forKey: "weight") as? Float)!).")
+                }
+            }
+        }
+    }
+    
+    func YouSure() {
+        self.alertController = UIAlertController(title: "Message", message: "Are you sure you want to add this class?" , preferredStyle: UIAlertControllerStyle.alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            (action:UIAlertAction) in
+            self.addNewAssignment()
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            (action:UIAlertAction) in
+            return
+        }
+        self.alertController!.addAction(cancelAction)
+        self.alertController!.addAction(OKAction)
+        
+        self.present(self.alertController!, animated: true, completion:nil)
     }
     
     func addNewAssignment() {

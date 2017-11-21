@@ -7,18 +7,42 @@
 //
 
 import UIKit
+import CoreData
 
-class GoalReacherViewController: UIViewController {
-
+class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    var selectedSection: NSManagedObject?
+    var course: NSManagedObject?
+    var courseID: NSManagedObjectID?
+    var sections: [NSManagedObject]?
+    @IBOutlet weak var goalLabel: UIView!
+    @IBOutlet weak var picker: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        sections = getSectionList(course: course!)
+        self.picker.delegate = self
+        self.picker.dataSource = self
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sections!.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sections![row].value(forKey: "name") as? String
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSection = sections![row]
     }
     
     func calculateRequiredGrade() -> Float {

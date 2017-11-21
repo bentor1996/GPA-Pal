@@ -90,6 +90,11 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
                 //avc.courseID = courseID!
             }
         }
+        if segue.identifier == "toGoalReacher"{
+            if let grvc = segue.destination as? AddNewGradeViewController {
+                grvc.courseID = courseID
+            }
+        }
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem

@@ -87,7 +87,7 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func YouSure() {
-        self.alertController = UIAlertController(title: "Message", message: "Are you sure you want to add this class?" , preferredStyle: UIAlertControllerStyle.alert)
+        self.alertController = UIAlertController(title: "Message", message: "Are you sure you want to add this assignment?" , preferredStyle: UIAlertControllerStyle.alert)
         let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             (action:UIAlertAction) in
             self.addNewAssignment()

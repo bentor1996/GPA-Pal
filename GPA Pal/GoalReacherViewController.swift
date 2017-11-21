@@ -28,6 +28,8 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.picker.delegate = self
         self.picker.dataSource = self
         // Do any additional setup after loading the view.
+        selectedSection = sections![0]
+        self.requiredGrade.text = calculateCourseAverage()
     }
 
     override func didReceiveMemoryWarning() {

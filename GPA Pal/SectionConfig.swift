@@ -54,7 +54,7 @@ func addAssignmentToSection(sectionID: NSManagedObjectID, assignmentList: NSMana
     let section = managedContext.object(with: sectionID)
     
     //semester.setValue(courseList, forKey: "courses")
-    section.mutableSetValue(forKey: "assignentList").add(assignmentList)
+    section.mutableSetValue(forKey: "assignmentList").add(assignmentList)
     
     do {
         try managedContext.save()
@@ -78,6 +78,23 @@ func getAssignmentList(section: NSManagedObject) -> [NSManagedObject] {
         return [NSManagedObject]()
     } else {
         return AssignmentList
+    }
+}
+
+func setSectionAverage(section: NSManagedObject, average: Float) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    let managedContext = appDelegate.persistentContainer.viewContext
+    
+    section.setValue(average, forKey: "average")
+    
+    do {
+        try managedContext.save()
+    } catch {
+        // what to do if an error occurs?
+        let nserror = error as NSError
+        NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+        abort()
     }
     
 }

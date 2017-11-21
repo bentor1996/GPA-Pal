@@ -62,7 +62,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCell", for: indexPath) as! CourseDetailsTableViewCell
         let section = sections![indexPath.row]
         let name = section.value(forKey: "name") as? String
-        let grade = section.value(forKey: "weight") as? Float
+        let grade = section.value(forKey: "average") as? Float
         cell.sectionType!.text = name
         if grade == nil {
             cell.sectionGrade!.text = "0"
@@ -84,7 +84,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         }
         if segue.identifier == "toAddNewGrade"{
             if let angvc = segue.destination as? AddNewGradeViewController {
-                let selectedIndex = tableView.indexPathForSelectedRow
+                //let selectedIndex = tableView.indexPathForSelectedRow
                 //cvc.semester = semesters[(selectedIndex?.row)!]
                 angvc.courseID = courseID
                 //avc.courseID = courseID!

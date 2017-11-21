@@ -25,7 +25,7 @@ class SectionTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,17 +41,17 @@ class SectionTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath) as! UITableViewCell?
+        let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath)
         let assignment = assignments![indexPath.row]
         let name = assignment.value(forKey: "name") as? String
         let grade = assignment.value(forKey: "grade") as? Float
-        cell?.textLabel!.text = name
+        cell.textLabel!.text = name
         if grade == nil {
-            cell?.detailTextLabel!.text = "0"
+            cell.detailTextLabel!.text = "0"
         } else {
-            cell?.detailTextLabel!.text = String(describing: grade!)
+            cell.detailTextLabel!.text = String(describing: grade!) + "%"
         }
-        return cell!
+        return cell
     }
 
     /*

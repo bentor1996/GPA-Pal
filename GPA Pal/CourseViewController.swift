@@ -65,7 +65,7 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         if grade == nil {
             cell.courseGrade!.text = "0"
         } else {
-            cell.courseGrade!.text = String(describing: grade!)
+            cell.courseGrade!.text = String(describing: grade!)+"%"
         }
         
         //cell.detailTextLabel!.text = String(describing: grade)

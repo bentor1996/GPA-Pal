@@ -49,7 +49,7 @@ class SectionTableViewController: UITableViewController {
         if grade == nil {
             cell.detailTextLabel!.text = "0"
         } else {
-            cell.detailTextLabel!.text = String(describing: grade!) + "%"
+            cell.detailTextLabel!.text = String(describing: grade!)
         }
         return cell
     }

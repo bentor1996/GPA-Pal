@@ -36,7 +36,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         let gradeGoal = self.tempcourse?.value(forKey: "gradeGoal")
         self.goalLabel.text =  String(describing: gradeGoal!)
         print(tempcourse!)
-        print(self.tempcourse?.value(forKey: "gradeGoal") as? String!)
+        //print(self.tempcourse?.value(forKey: "gradeGoal") as? String!)
     }
 
     override func didReceiveMemoryWarning() {

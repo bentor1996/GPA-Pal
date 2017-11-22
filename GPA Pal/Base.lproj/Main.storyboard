@@ -652,8 +652,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7t-73-mW3">
                                                     <rect key="frame" x="236" y="14" width="42" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="42" id="7gG-ak-dfC"/>
-                                                        <constraint firstAttribute="height" constant="21" id="Jdt-Lt-Zed"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Nmg-2i-uaA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99913793799999995" green="0.98960047959999997" blue="0.91763627530000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -661,9 +660,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="S7t-73-mW3" firstAttribute="trailing" secondItem="qcb-ed-hTK" secondAttribute="trailingMargin" id="9AV-47-XM5"/>
-                                                <constraint firstItem="S7t-73-mW3" firstAttribute="top" secondItem="qcb-ed-hTK" secondAttribute="topMargin" constant="3" id="EEw-zR-Gl7"/>
-                                                <constraint firstAttribute="trailing" secondItem="S7t-73-mW3" secondAttribute="trailing" constant="15" id="GB8-zh-afU"/>
+                                                <constraint firstItem="S7t-73-mW3" firstAttribute="top" secondItem="qcb-ed-hTK" secondAttribute="top" constant="14" id="N18-cF-bV6"/>
+                                                <constraint firstAttribute="trailing" secondItem="S7t-73-mW3" secondAttribute="trailing" constant="15" id="Tow-ry-Y1d"/>
                                                 <constraint firstItem="pcq-ef-eE6" firstAttribute="top" secondItem="qcb-ed-hTK" secondAttribute="topMargin" constant="3" id="i7W-f2-tdH"/>
                                                 <constraint firstItem="pcq-ef-eE6" firstAttribute="leading" secondItem="qcb-ed-hTK" secondAttribute="leadingMargin" id="mAb-lO-Bgc"/>
                                             </constraints>

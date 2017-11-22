@@ -3,7 +3,7 @@ Implementation Contributions:
 
                         Contribution %  |    Tasks Completed
                         __________________________________________________________
-    Muhammad Ghauri:    |       25%     | Add Course Controller, CourseTableViewCell
+    Muhammad Ghauri:    |       25%     | Add Course Controller, CourseTableViewCell, Quality Control on existing codebase, UI Constraints 
     Omar Olivarez:      |       25%     | GoalReacherViewController, CourseDetailsViewController, Course Config, Section Config
     Benjamin Torres:    |       50%     | Linked CoreData objects, Add New Grade Functionality, SectionTableViewController, Semester Config, helper functions
                         ----------------------------------------------------------

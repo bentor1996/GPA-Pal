@@ -4,23 +4,18 @@ Implementation Contributions:
                         Contribution %  |    Tasks Completed
                         __________________________________________________________
     Muhammad Ghauri:    |       25%     | Add Course Controller, CourseTableViewCell
-    Omar Olivarez:      |       25%     | Login and SignUp Controllers, Config File
-    Benjamin Torres:    |       50%     | Created Storyboard, Semesters and Courses Controller, SemestersTableViewCell
+    Omar Olivarez:      |       25%     | GoalReacherViewController, CourseDetailsViewController, Course Config, Section Config
+    Benjamin Torres:    |       50%     | Linked CoreData objects, Add New Grade Functionality, SectionTableViewController, Semester Config, helper functions
                         ----------------------------------------------------------
 
 Grading Level:
 Same Grade for all members.
 
 
-
 Differences:
-    1) We did not originally include a username or username input in our App Idea Paper. We included this in our Alpha because it was a project requirement and it makes the app more robust.
-    2) We implemented a different layout for the courses view - we included the courses in a TableView rather than separate circular ImageViews. We structured it in a TableView because we found it would be easier to auto-populate a table than auto-create an ImageView every time a new course was created.
-    3) We added a label in the Login screen to give warning messages when users provide the wrong input. We did this because it makes it more user friendly and alerts the user as to which error they created.
-    4) We shortened the TableView within the Add Course View Controller. We did this so that the keyboard wouldn't block the user from seeing what they were typing as the input fields ran lower down on the screen
-    5) We added a 'Save' button to the Add Course View Controller. We did added the button to make the process for adding courses feasible and to make the app more robust.
-    6) The View that displays the list of courses doesn't correctly display the course objects in this version.
+    1) We added new attributes to the Section class in the data model, to include the  "average" attribute for each section to aide us in calculating each section's grade.
+    2) We were originally planning on including notifications. We did not include them because they did not seem to have a function in the app.
 
 Special Instructions:
-
+Make sure to delete the app on the simulator if it loads from the previous build. We have made some changes to core data, so deleting the app will ensure that it loads correctly and will allow you to create semester, course, section, and assignment objects.
 

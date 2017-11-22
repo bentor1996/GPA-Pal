@@ -61,6 +61,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         var calculatedCourseGrade = 0.0
         let cGrade = course?.value(forKey: "grade") as! Double
         let gGoal = course?.value(forKey: "gradeGoal") as! Double
+        let cPTotal = course?.value(forKey: "pointstotal") as? Double
         if cGrade < gGoal {
             let assignmentList = getAssignmentList(section: selectedSection!)
             if assignmentList.count < 1 {
@@ -128,6 +129,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func reCalculate (average: Double) -> Double {
         var currentGrade = 0.0
+        let cPTotal = course?.value(forKey: "pointstotal") as? Double
         if course?.value(forKey: "totalType") as? String == "Percent" {
             for sec in sections! {
                 let sectionName = sec.value(forKey: "name") as? String
@@ -138,7 +140,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     print("passed in average")
                     print(average)
                 } else {
-                    currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/100)
+                    currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
                 }
             }
         } else {
@@ -149,7 +151,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     // use average rather than the stored average
                     currentGrade += (sec.value(forKey: "weight") as! Double) * average
                 } else {
-                    currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/100)
+                    currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
                 }
             }
         }

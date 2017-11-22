@@ -169,6 +169,7 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func calculateCourseAverage() {
+        let cPTotal = course?.value(forKey: "pointstotal") as? Double
         // calculate average for % system
         var currentGrade = 0.0
         if course?.value(forKey: "totalType") as? String == "Percent" {
@@ -177,7 +178,7 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
         } else {
             for sec in sections! {
-                currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/100)
+                currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
             }
         }
         print("NEW COURSE AVERAGE")

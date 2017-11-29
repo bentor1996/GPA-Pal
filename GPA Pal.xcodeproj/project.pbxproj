@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B512D9851FBBD81C001027F4 /* CourseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B512D9841FBBD81C001027F4 /* CourseListTableViewCell.swift */; };
 		B53552EC1FB7E99F00F8995E /* SemesterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */; };
+		B57FDBA61FCE4CEF006C4BC3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FDBA51FCE4CEF006C4BC3 /* SettingsViewController.swift */; };
 		B580CA3E1FA6769500945EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA3D1FA6769500945EE6 /* AppDelegate.swift */; };
 		B580CA431FA6769500945EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B580CA411FA6769500945EE6 /* Main.storyboard */; };
 		B580CA461FA6769500945EE6 /* GPA_Pal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B580CA441FA6769500945EE6 /* GPA_Pal.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		B512D9841FBBD81C001027F4 /* CourseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListTableViewCell.swift; sourceTree = "<group>"; };
 		B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterConfig.swift; sourceTree = "<group>"; };
+		B57FDBA51FCE4CEF006C4BC3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B580CA3A1FA6769500945EE6 /* GPA Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B580CA3D1FA6769500945EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B580CA421FA6769500945EE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */,
 				E5BA3B0F1FC0F225003DF7B2 /* CourseConfig.swift */,
 				E5A4709C1FC2503A0043247C /* SectionConfig.swift */,
+				B57FDBA51FCE4CEF006C4BC3 /* SettingsViewController.swift */,
 				B580CA411FA6769500945EE6 /* Main.storyboard */,
 				B580CA471FA6769500945EE6 /* Assets.xcassets */,
 				B580CA491FA6769500945EE6 /* LaunchScreen.storyboard */,
@@ -196,6 +199,7 @@
 			files = (
 				B512D9851FBBD81C001027F4 /* CourseListTableViewCell.swift in Sources */,
 				B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */,
+				B57FDBA61FCE4CEF006C4BC3 /* SettingsViewController.swift in Sources */,
 				E5A4709F1FC25B950043247C /* CourseDetailsTableViewCell.swift in Sources */,
 				B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */,
 				E5A4709D1FC2503A0043247C /* SectionConfig.swift in Sources */,

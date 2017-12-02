@@ -178,7 +178,7 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
         } else {
             for sec in sections! {
-                currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
+                currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)) // removed "/cPTotal!"
             }
         }
         print("NEW COURSE AVERAGE")

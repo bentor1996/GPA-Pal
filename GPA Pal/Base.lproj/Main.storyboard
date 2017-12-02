@@ -183,15 +183,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mj7-hu-098">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mj7-hu-098">
                                 <rect key="frame" x="16" y="601" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AzH-cE-Au8"/>
                                     <constraint firstAttribute="width" constant="50" id="lEH-5i-WZM"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="R2g-h0-IHy" appends="YES" id="qel-xC-JU2"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.26744553450000003" green="0.29734340310000001" blue="0.32941675190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="piN-K9-QeS" firstAttribute="centerX" secondItem="D8P-Av-Qiy" secondAttribute="centerX" id="9VU-LB-EfR"/>
                             <constraint firstItem="lW8-rJ-czV" firstAttribute="leading" secondItem="yqJ-mB-FUu" secondAttribute="leading" constant="68" id="FKQ-JU-RZu"/>
@@ -207,10 +212,17 @@
                     <connections>
                         <outlet property="settingsImage" destination="Mj7-hu-098" id="dMc-W9-ynp"/>
                         <outlet property="tableView" destination="lW8-rJ-czV" id="kfR-0z-RE3"/>
-                        <segue destination="eXM-4A-Lam" kind="show" identifier="toSettings" id="dWD-7z-FBP"/>
+                        <segue destination="eXM-4A-Lam" kind="popoverPresentation" identifier="toSettings" popoverAnchorView="Mj7-hu-098" id="dWD-7z-FBP">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rqa-PT-4WZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="R2g-h0-IHy">
+                    <connections>
+                        <action selector="settingsClicked:" destination="9e8-Ba-gxe" id="Vy5-io-t1f"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1140" y="-470"/>
         </scene>
@@ -1186,11 +1198,25 @@
                                 <color key="textColor" red="0.81136976522842641" green="0.778857789327567" blue="0.55162325142357049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcI-uF-zjZ">
+                                <rect key="frame" x="172" y="555" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="tintColor" red="0.91852694749999997" green="0.3068713844" blue="0.2009924948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="x">
+                                    <color key="titleColor" red="0.26744553450000003" green="0.29734340310000001" blue="0.32941675190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnClicked:" destination="eXM-4A-Lam" eventType="touchUpInside" id="glD-Dg-w2i"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.26744553446769714" green="0.29734340310096741" blue="0.32941675186157227" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.26744553450000003" green="0.29734340310000001" blue="0.32941675190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="m4m-NH-THV"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nw0-hg-fky"/>
+                    <connections>
+                        <outlet property="button" destination="ZcI-uF-zjZ" id="dWc-mB-K6P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jp-lC-b4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1234,6 +1260,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sUP-Bb-vv1"/>
+        <segue reference="dWD-7z-FBP"/>
     </inferredMetricsTieBreakers>
 </document>

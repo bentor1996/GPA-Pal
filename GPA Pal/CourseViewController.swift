@@ -94,12 +94,16 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
                 cdvc.courseID = courses![(selectedIndex?.row)!].objectID
                 //avc.courseID = courseID!
             }
-        }
+        } else if segue.identifier == "toGraph" {
+            if let gvc = segue.destination as? GraphViewController {
+                //avc.semester = semester
+                gvc.semesterID = semesterID!
+                //avc.courses = semester.value(forKey: "courses") as! [NSManagedObject]
+            }
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
         // Pass the selected object to the new view controller.
+        }
     }
-    
-
 }

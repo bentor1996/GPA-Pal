@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F9DF9D56770A2A13A8EFEEE /* Pods_GPA_Pal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211CF7101DA84588E9039062 /* Pods_GPA_Pal.framework */; };
 		B512D9851FBBD81C001027F4 /* CourseListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B512D9841FBBD81C001027F4 /* CourseListTableViewCell.swift */; };
 		B53552EC1FB7E99F00F8995E /* SemesterConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */; };
+		B56EB42A1FD3580900942FC5 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56EB4291FD3580900942FC5 /* GraphViewController.swift */; };
 		B57FDBA61FCE4CEF006C4BC3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57FDBA51FCE4CEF006C4BC3 /* SettingsViewController.swift */; };
 		B580CA3E1FA6769500945EE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580CA3D1FA6769500945EE6 /* AppDelegate.swift */; };
 		B580CA431FA6769500945EE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B580CA411FA6769500945EE6 /* Main.storyboard */; };
@@ -35,8 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211CF7101DA84588E9039062 /* Pods_GPA_Pal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPA_Pal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		770ABE9940BB8818207EAAD6 /* Pods-GPA Pal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Pal.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Pal/Pods-GPA Pal.release.xcconfig"; sourceTree = "<group>"; };
 		B512D9841FBBD81C001027F4 /* CourseListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListTableViewCell.swift; sourceTree = "<group>"; };
 		B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterConfig.swift; sourceTree = "<group>"; };
+		B56EB4291FD3580900942FC5 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		B57FDBA51FCE4CEF006C4BC3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B580CA3A1FA6769500945EE6 /* GPA Pal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GPA Pal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B580CA3D1FA6769500945EE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +58,7 @@
 		B580CA601FA692D400945EE6 /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 		B5E429481FA9554A0041DF1A /* Group4README */ = {isa = PBXFileReference; lastKnownFileType = text; path = Group4README; sourceTree = "<group>"; };
 		BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
+		D49B5AEA9C243D80DE22816E /* Pods-GPA Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Pal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Pal/Pods-GPA Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		E50A546D1FC2939900D656D4 /* AddNewGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGradeViewController.swift; sourceTree = "<group>"; };
 		E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalReacherViewController.swift; sourceTree = "<group>"; };
@@ -69,17 +75,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F9DF9D56770A2A13A8EFEEE /* Pods_GPA_Pal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60BF8C42EE021D1EAB0224EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D49B5AEA9C243D80DE22816E /* Pods-GPA Pal.debug.xcconfig */,
+				770ABE9940BB8818207EAAD6 /* Pods-GPA Pal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B580CA311FA6769500945EE6 = {
 			isa = PBXGroup;
 			children = (
 				B580CA3C1FA6769500945EE6 /* GPA Pal */,
 				B580CA3B1FA6769500945EE6 /* Products */,
+				60BF8C42EE021D1EAB0224EA /* Pods */,
+				E0D97914EEAA31C206F7CC3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +133,7 @@
 				E5BA3B0F1FC0F225003DF7B2 /* CourseConfig.swift */,
 				E5A4709C1FC2503A0043247C /* SectionConfig.swift */,
 				B57FDBA51FCE4CEF006C4BC3 /* SettingsViewController.swift */,
+				B56EB4291FD3580900942FC5 /* GraphViewController.swift */,
 				B580CA411FA6769500945EE6 /* Main.storyboard */,
 				B580CA471FA6769500945EE6 /* Assets.xcassets */,
 				B580CA491FA6769500945EE6 /* LaunchScreen.storyboard */,
@@ -124,6 +143,14 @@
 			path = "GPA Pal";
 			sourceTree = "<group>";
 		};
+		E0D97914EEAA31C206F7CC3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				211CF7101DA84588E9039062 /* Pods_GPA_Pal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B580CA4F1FA6769500945EE6 /* Build configuration list for PBXNativeTarget "GPA Pal" */;
 			buildPhases = (
+				77546994949AD652CF9D2623 /* [CP] Check Pods Manifest.lock */,
 				B580CA361FA6769500945EE6 /* Sources */,
 				B580CA371FA6769500945EE6 /* Frameworks */,
 				B580CA381FA6769500945EE6 /* Resources */,
+				69C6105045477EB96253D45C /* [CP] Embed Pods Frameworks */,
+				24BDFD1323B6C9A197BC5D5C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +222,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24BDFD1323B6C9A197BC5D5C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPA Pal/Pods-GPA Pal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69C6105045477EB96253D45C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GPA Pal/Pods-GPA Pal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPA Pal/Pods-GPA Pal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77546994949AD652CF9D2623 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPA Pal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B580CA361FA6769500945EE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -216,6 +300,7 @@
 				E50A546E1FC2939900D656D4 /* AddNewGradeViewController.swift in Sources */,
 				E5BA3B121FC240FD003DF7B2 /* SectionListTableViewCell.swift in Sources */,
 				E59672451FBBDF8800D02F55 /* CourseDetailsViewController.swift in Sources */,
+				B56EB42A1FD3580900942FC5 /* GraphViewController.swift in Sources */,
 				E59672431FBBDE4A00D02F55 /* GoalReacherViewController.swift in Sources */,
 				B580CA5F1FA68DDE00945EE6 /* CourseViewController.swift in Sources */,
 			);
@@ -352,6 +437,7 @@
 		};
 		B580CA501FA6769500945EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D49B5AEA9C243D80DE22816E /* Pods-GPA Pal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,6 +453,7 @@
 		};
 		B580CA511FA6769500945EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 770ABE9940BB8818207EAAD6 /* Pods-GPA Pal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

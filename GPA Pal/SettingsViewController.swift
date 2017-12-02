@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
 
         button.backgroundColor = .white
-        button.layer.cornerRadius = 50
+        button.layer.cornerRadius = 30
         button.layer.borderWidth = 1
         //button.layer.contentsCenter = CGRect(x: 0.5, y: 0.5, width: 0.5, height: 0.5);
         button.layer.borderColor = UIColor.clear.cgColor

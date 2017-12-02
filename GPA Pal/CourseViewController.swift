@@ -63,12 +63,21 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         let course = courses![indexPath.row]
         let name = course.value(forKey: "name") as? String
         let grade = course.value(forKey: "grade") as? Float
+        //let gradeType = course.value(forKey: "totalType") as? String
         
         cell.courseName!.text = name
         if grade == nil {
             cell.courseGrade!.text = "0"
         } else {
-            cell.courseGrade!.text = String(describing: grade!)+"%"
+            if course.value(forKey: "totalType") as? String == "Percent" {
+                cell.courseGrade!.text = String(describing: grade!)+"%"
+            }
+            else {
+                let totalPoints = course.value(forKey: "pointstotal") as? Float
+                let stringGrade = (totalPoints! * grade!) / 100
+                cell.courseGrade!.text = String(describing: stringGrade) + "/" + String(describing: totalPoints!)
+            }
+            
         }
         
         //cell.detailTextLabel!.text = String(describing: grade)

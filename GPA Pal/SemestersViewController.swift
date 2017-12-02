@@ -154,4 +154,29 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationItem.backBarButtonItem = backItem
     }
     
+    
+    @IBAction func settingsClicked(_ sender: Any) {
+    
+        let transition:CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromBottom
+        
+        
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toSettings" {
+                if let cvc = segue.destination as? SettingsViewController {
+                }
+            }
+            //let backItem = UIBarButtonItem()
+            //backItem.title = "Back"
+            //navigationItem.backBarButtonItem = backItem
+        }
+        
+        performSegue(withIdentifier: "toSettings", sender: nil)
+        
+    }
+    
+    
 }

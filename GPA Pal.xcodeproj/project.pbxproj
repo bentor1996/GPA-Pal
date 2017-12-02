@@ -26,6 +26,8 @@
 		B5E429491FA9554A0041DF1A /* Group4README in Resources */ = {isa = PBXBuildFile; fileRef = B5E429481FA9554A0041DF1A /* Group4README */; };
 		BF3AF74F1FA9688F00888E34 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */; };
 		E50A546E1FC2939900D656D4 /* AddNewGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A546D1FC2939900D656D4 /* AddNewGradeViewController.swift */; };
+		E590FFE91FD3459B0065F2CB /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590FFE81FD3459B0065F2CB /* Resource.swift */; };
+		E590FFEB1FD346460065F2CB /* ResourceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590FFEA1FD346460065F2CB /* ResourceList.swift */; };
 		E59672411FBBDD0400D02F55 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */; };
 		E59672431FBBDE4A00D02F55 /* GoalReacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */; };
 		E59672451FBBDF8800D02F55 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */; };
@@ -60,6 +62,8 @@
 		BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		D49B5AEA9C243D80DE22816E /* Pods-GPA Pal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPA Pal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPA Pal/Pods-GPA Pal.debug.xcconfig"; sourceTree = "<group>"; };
 		E50A546D1FC2939900D656D4 /* AddNewGradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGradeViewController.swift; sourceTree = "<group>"; };
+		E590FFE81FD3459B0065F2CB /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		E590FFEA1FD346460065F2CB /* ResourceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceList.swift; sourceTree = "<group>"; };
 		E59672401FBBDD0400D02F55 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
 		E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalReacherViewController.swift; sourceTree = "<group>"; };
 		E59672441FBBDF8800D02F55 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				BF3AF74E1FA9688F00888E34 /* SectionTableViewCell.swift */,
 				E59672421FBBDE4A00D02F55 /* GoalReacherViewController.swift */,
 				E50A546D1FC2939900D656D4 /* AddNewGradeViewController.swift */,
+				E590FFE81FD3459B0065F2CB /* Resource.swift */,
+				E590FFEA1FD346460065F2CB /* ResourceList.swift */,
 				E5A48A161FA8F42900435C02 /* Config.swift */,
 				B53552EB1FB7E99F00F8995E /* SemesterConfig.swift */,
 				E5BA3B0F1FC0F225003DF7B2 /* CourseConfig.swift */,
@@ -284,8 +290,10 @@
 				B512D9851FBBD81C001027F4 /* CourseListTableViewCell.swift in Sources */,
 				B580CA531FA682FC00945EE6 /* LoginViewController.swift in Sources */,
 				B57FDBA61FCE4CEF006C4BC3 /* SettingsViewController.swift in Sources */,
+				E590FFE91FD3459B0065F2CB /* Resource.swift in Sources */,
 				E5A4709F1FC25B950043247C /* CourseDetailsTableViewCell.swift in Sources */,
 				B580CA611FA692D400945EE6 /* AddCourseViewController.swift in Sources */,
+				E590FFEB1FD346460065F2CB /* ResourceList.swift in Sources */,
 				E5A4709D1FC2503A0043247C /* SectionConfig.swift in Sources */,
 				E5A48A171FA8F42900435C02 /* Config.swift in Sources */,
 				BF3AF74F1FA9688F00888E34 /* SectionTableViewCell.swift in Sources */,

@@ -634,12 +634,16 @@
                                     <segue destination="G8M-7L-5di" kind="show" identifier="toAddClass" id="kVa-pv-asb"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW9-7Q-r7U">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW9-7Q-r7U">
                                 <rect key="frame" x="16" y="601" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3vv-lr-hyS"/>
                                     <constraint firstAttribute="height" constant="50" id="nLv-Gh-IDe"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5Bs-3h-47Q" appends="YES" id="wke-el-fox"/>
+                                </connections>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-lj-P81">
                                 <rect key="frame" x="41" y="154" width="293" height="412"/>
@@ -707,10 +711,17 @@
                     <connections>
                         <outlet property="settingsBtn" destination="xW9-7Q-r7U" id="Rlr-1K-fjv"/>
                         <outlet property="tableView" destination="AjM-lj-P81" id="ld9-ch-R0y"/>
-                        <segue destination="eXM-4A-Lam" kind="show" identifier="toSettings" id="hx0-A9-SRG"/>
+                        <segue destination="eXM-4A-Lam" kind="popoverPresentation" identifier="toSettings2" popoverAnchorView="xW9-7Q-r7U" id="hx0-A9-SRG">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vkh-Eq-Icg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5Bs-3h-47Q">
+                    <connections>
+                        <action selector="btnClicked:" destination="cmx-sr-FXl" id="PzL-k7-TtQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1968.8" y="-470.01499250374815"/>
         </scene>
@@ -724,10 +735,14 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOX-ar-pKw">
                                 <rect key="frame" x="16" y="601" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="EDf-dH-OCR"/>
                                     <constraint firstAttribute="height" constant="50" id="bHQ-sW-Vte"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="oM5-1k-ifG" appends="YES" id="1NC-Nr-xX1"/>
+                                </connections>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kfF-KP-hMv">
                                 <rect key="frame" x="40" y="84" width="295" height="345"/>
@@ -863,6 +878,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zx-uq-soe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="oM5-1k-ifG"/>
             </objects>
             <point key="canvasLocation" x="2748" y="-63.418290854572717"/>
         </scene>
@@ -986,16 +1002,21 @@
                                 <color key="textColor" red="0.91794240469999999" green="0.24242153759999999" blue="0.4352914095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHz-l6-ZLa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MHz-l6-ZLa">
                                 <rect key="frame" x="16" y="597" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="BLJ-bt-I6s"/>
-                                    <constraint firstAttribute="height" constant="50" id="yXP-V2-iUh"/>
+                                    <constraint firstAttribute="width" constant="50" id="25s-2H-USl"/>
+                                    <constraint firstAttribute="height" constant="50" id="yTO-zs-6sw"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BjL-Bh-15q" appends="YES" id="zgf-7M-qjc"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.26744553450000003" green="0.29734340310000001" blue="0.32941675190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="MHz-l6-ZLa" firstAttribute="leading" secondItem="h1a-FP-bAS" secondAttribute="leading" constant="16" id="1V9-hU-rF3"/>
                             <constraint firstItem="cej-BD-6xr" firstAttribute="top" secondItem="h1a-FP-bAS" secondAttribute="top" constant="30" id="5wl-yy-Tvf"/>
                             <constraint firstItem="FQy-jL-Bvq" firstAttribute="centerX" secondItem="qT1-3p-ksl" secondAttribute="centerX" id="MAz-bf-Muw"/>
                             <constraint firstItem="EUs-nd-xTE" firstAttribute="top" secondItem="FQy-jL-Bvq" secondAttribute="bottom" constant="10" id="QgM-fW-meK"/>
@@ -1003,6 +1024,7 @@
                             <constraint firstItem="xw2-6l-e5J" firstAttribute="top" secondItem="EUs-nd-xTE" secondAttribute="bottom" constant="10" id="S6L-qN-UAY"/>
                             <constraint firstItem="cej-BD-6xr" firstAttribute="centerX" secondItem="qT1-3p-ksl" secondAttribute="centerX" id="YyG-Hf-XES"/>
                             <constraint firstItem="xw2-6l-e5J" firstAttribute="centerX" secondItem="qT1-3p-ksl" secondAttribute="centerX" id="b3g-Dg-T2R"/>
+                            <constraint firstItem="h1a-FP-bAS" firstAttribute="bottom" secondItem="MHz-l6-ZLa" secondAttribute="bottom" constant="20" id="cm5-0H-bgv"/>
                             <constraint firstItem="EUs-nd-xTE" firstAttribute="centerX" secondItem="qT1-3p-ksl" secondAttribute="centerX" id="k6j-e3-zY4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h1a-FP-bAS"/>
@@ -1017,6 +1039,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AT3-f3-vZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BjL-Bh-15q"/>
             </objects>
             <point key="canvasLocation" x="4200.8000000000002" y="705.69715142428788"/>
         </scene>
@@ -1316,6 +1339,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dWD-7z-FBP"/>
+        <segue reference="hx0-A9-SRG"/>
     </inferredMetricsTieBreakers>
 </document>

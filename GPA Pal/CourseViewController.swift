@@ -110,5 +110,23 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         // Pass the selected object to the new view controller.
     }
     
+    
+    @IBAction func btnClicked(_ sender: Any) {
+        
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toSettings2" {
+                if let cvc = segue.destination as? SettingsViewController {
+                }
+            }
+            //let backItem = UIBarButtonItem()
+            //backItem.title = "Back"
+            //navigationItem.backBarButtonItem = backItem
+        }
+        
+        performSegue(withIdentifier: "toSettings2", sender: nil)
+        
+    }
+    
+    
 
 }

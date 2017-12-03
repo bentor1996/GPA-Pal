@@ -57,6 +57,7 @@ class GraphViewController: UIViewController {
     
     func setChart(dataPoints: [String], values: [Double]) {
         barChartView.noDataText = "You need data"
+        barChartView.chartDescription?.text = ""
         
         var dataEntries: [BarChartDataEntry] = []
         
@@ -66,15 +67,29 @@ class GraphViewController: UIViewController {
         }
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "All Classes")
+        chartDataSet.valueFont = UIFont(name: "HelveticaNeue", size: 17.0)!
+        chartDataSet.valueColors = [UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)]
         let ChartData = BarChartData(dataSet: chartDataSet)
         barChartView.data = ChartData
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
-        
-        chartDataSet.colors = ChartColorTemplates.colorful()
-        //barChartView.xAxis.labelPosition
+        barChartView.xAxis.granularity = 1
+        chartDataSet.colors = [UIColor(red: 0.9176, green: 0.2431, blue: 0.4353, alpha: 1.0)]
+        barChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        let ll = ChartLimitLine(limit: average, label: "Average Goal")
-        barChartView.rightAxis.addLimitLine(ll)
+        let avg = ChartLimitLine(limit: average, label: "Average Goal = \(average)")
+        avg.valueFont = UIFont(name: "HelveticaNeue", size: 17.0)!
+        avg.valueTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)
+        avg.lineColor = UIColor(red: 0.3843, green: 0.6314, blue: 0.749, alpha: 1.0)
+        barChartView.rightAxis.addLimitLine(avg)
+        let  xAxis : XAxis = self.barChartView.xAxis
+        xAxis.labelFont = UIFont(name: "HelveticaNeue", size: 17.0)!
+        xAxis.labelTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)
+        barChartView.legend.enabled = false
+        barChartView.leftAxis.labelFont = UIFont(name: "HelveticaNeue", size: 17.0)!
+        barChartView.leftAxis.labelTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)
+        barChartView.rightAxis.labelFont = UIFont(name: "HelveticaNeue", size: 17.0)!
+        barChartView.rightAxis.labelTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)
+        
         
     }
     

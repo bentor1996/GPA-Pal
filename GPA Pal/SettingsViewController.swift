@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
@@ -45,6 +46,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.dismiss(animated: true, completion: nil)
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    @IBAction func resetData(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContext = appDelegate.persistentContainer.viewContext
+        let fetch1 = NSFetchRequest<NSFetchRequestResult>(entityName: "Semester")
+        let fetch2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Course")
+        let fetch3 = NSFetchRequest<NSFetchRequestResult>(entityName: "Section")
+        let fetch4 = NSFetchRequest<NSFetchRequestResult>(entityName: "Assignment")
+        let request1 = NSBatchDeleteRequest(fetchRequest: fetch1)
+        let request2 = NSBatchDeleteRequest(fetchRequest: fetch2)
+        let request3 = NSBatchDeleteRequest(fetchRequest: fetch3)
+        let request4 = NSBatchDeleteRequest(fetchRequest: fetch4)
+        let result1 = try? managedObjectContext.execute(request1)
+        let result2 = try? managedObjectContext.execute(request2)
+        let result3 = try? managedObjectContext.execute(request3)
+        let result4 = try? managedObjectContext.execute(request4)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

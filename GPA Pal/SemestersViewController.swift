@@ -27,6 +27,7 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.navigationItem.setHidesBackButton(true, animated:true)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +63,11 @@ class SemestersViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             print("Could not fetch")
         }*/
+    }
+    
+    @objc func loadList(notification: NSNotification){
+        semesters = getAllSemesters()
+        self.tableView.reloadData()
     }
     
     @IBAction func addNewSemester(_ sender: Any) {

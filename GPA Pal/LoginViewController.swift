@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var btnIn: UIButton!
+    @IBOutlet weak var btnUp: UIButton!
     @IBOutlet weak var warningMessage: UILabel!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -17,6 +19,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "Login"
         self.warningMessage.isHidden = true
+        btnIn.layer.cornerRadius = 15
+        btnUp.layer.cornerRadius = 15
     }
 
     override func didReceiveMemoryWarning() {

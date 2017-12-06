@@ -102,4 +102,11 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
     }
+    
+    
+    @IBAction func settingsClicked(_ sender: Any) {
+
+        performSegue(withIdentifier: "toSettings3", sender: nil)
+    }
+    
 }

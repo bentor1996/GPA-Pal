@@ -586,9 +586,9 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ql3-Jx-EDg">
-                                <rect key="frame" x="155" y="90" width="189" height="72"/>
+                                <rect key="frame" x="154" y="90" width="190" height="72"/>
+                                <color key="backgroundColor" red="0.38319337368011475" green="0.63259893655776978" blue="0.74903851747512817" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="S93-nu-cgC"/>
                                     <constraint firstAttribute="height" constant="72" id="uTg-ha-BD8"/>
                                 </constraints>
                             </pickerView>
@@ -633,6 +633,7 @@
                             <constraint firstItem="2Q0-bi-siU" firstAttribute="top" secondItem="ql3-Jx-EDg" secondAttribute="bottom" constant="19" id="8ij-7S-DsZ"/>
                             <constraint firstItem="9Gq-M0-8bf" firstAttribute="leading" secondItem="pha-Jc-cfd" secondAttribute="leading" constant="72" id="IPq-Zw-2wP"/>
                             <constraint firstItem="7we-c3-IsE" firstAttribute="top" secondItem="cI2-kI-uox" secondAttribute="bottom" constant="50" id="Msk-7q-sUt"/>
+                            <constraint firstItem="ql3-Jx-EDg" firstAttribute="leading" secondItem="8Mi-Eb-P03" secondAttribute="trailing" constant="30" id="PKP-0V-Da5"/>
                             <constraint firstItem="8Mi-Eb-P03" firstAttribute="leading" secondItem="pha-Jc-cfd" secondAttribute="leading" constant="26" id="QFX-07-Cyt"/>
                             <constraint firstItem="pha-Jc-cfd" firstAttribute="trailing" secondItem="cI2-kI-uox" secondAttribute="trailing" constant="30" id="TNZ-R2-xba"/>
                             <constraint firstItem="pha-Jc-cfd" firstAttribute="trailing" secondItem="ql3-Jx-EDg" secondAttribute="trailing" constant="31" id="cr9-fw-La0"/>
@@ -1049,6 +1050,7 @@
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQy-jL-Bvq">
                                 <rect key="frame" x="36" y="174" width="303" height="163"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.24242153759999999" blue="0.4352914095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="303" id="8cD-sQ-QcN"/>
                                     <constraint firstAttribute="height" constant="163" id="FCS-71-ZS4"/>

@@ -182,12 +182,12 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         print(requiredGrade)
         let gGoal = (course?.value(forKey: "gradeGoal") as! Double)
         var ccGrade = 0.0
-        ccGrade = ccGrade * 2 * 10
+        
         let cPTotal = course?.value(forKey: "pointstotal") as? Double
         for sec in sections! {
             ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
         }
-        
+        ccGrade = ccGrade * 2 * 10
         if requiredGrade < 0{
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")
@@ -195,6 +195,9 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.warning.text = "You have reached this class's Grade Goal."
             return ("0")
         }else if requiredGrade == 0 {
+            print("HOLA")
+            print(ccGrade)
+            print(gGoal)
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")
         }else {

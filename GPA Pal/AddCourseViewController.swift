@@ -48,7 +48,8 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.lblSectionNumber.text = "Section " + String(indexPath.row + 1)
         //let lastName = candidate.value(forKey: "lastName") as? String
         //cell.detailTextLabel!.text = candidate.value(forKey: "party") as? String
-        
+//        cell.txtName.text = ""
+//        cell.txtWeight.text = ""
         return cell
     }
     

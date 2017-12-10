@@ -12,11 +12,13 @@ import CoreData
 class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var settingsBtn: UIImageView!
+    @IBOutlet weak var btnGoalInsight: UIButton!
     
     /*@IBAction func addGradeButton(_ sender: Any) {
         self.performSegue(withIdentifier: "toAddNewGrade", sender: self)
     }*/
     @IBAction func goalReachButton(_ sender: Any) {
+        
         self.performSegue(withIdentifier: "toGoalReacher", sender: self)
     }
     
@@ -38,6 +40,7 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         let gradeGoal = self.tempcourse?.value(forKey: "gradeGoal")
         self.goalLabel.text =  String(describing: gradeGoal!)
         print(tempcourse!)
+        btnGoalInsight.layer.cornerRadius = 15
         //print(self.tempcourse?.value(forKey: "gradeGoal") as? String!)
     }
 

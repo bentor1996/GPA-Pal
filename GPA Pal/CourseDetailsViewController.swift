@@ -65,12 +65,32 @@ class CourseDetailsViewController: UIViewController, UITableViewDataSource, UITa
         let section = sections![indexPath.row]
         let name = section.value(forKey: "name") as? String
         let grade = section.value(forKey: "average") as? Float
+        let weight = section.value(forKey: "weight") as? Float
         cell.sectionType!.text = name
-        if grade == nil {
-            cell.sectionGrade!.text = "0"
+        if course?.value(forKey: "totalType") as? String == "Percent"{
+            if grade == nil {
+                cell.sectionGrade!.text = "0%"
+            } else {
+                var strtext = ""
+                strtext += String(grade!)
+                strtext += "%"
+                cell.sectionGrade!.text = strtext
+            }
         } else {
-            cell.sectionGrade!.text = String(describing: grade!)
+            if grade == nil {
+                var strtext = ""
+                strtext += "0.0/"
+                strtext += String(describing: weight!)
+                cell.sectionGrade!.text = strtext
+            } else {
+                var strtext = ""
+                strtext += String(describing: ((grade!/100) * weight! * 2))
+                strtext += "/"
+                strtext += String(describing: weight!)
+                cell.sectionGrade!.text = strtext
+            }
         }
+        
         return cell
     }
     // MARK: - Navigation

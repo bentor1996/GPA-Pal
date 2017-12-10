@@ -114,9 +114,13 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
         // else, if this is the POINTS SYSTEM
         } else {
+            print("PRNN")
             let cGrade = course?.value(forKey: "grade") as! Double
+            print(cGrade)
             let gGoal = (course?.value(forKey: "gradeGoal") as! Double)
+            print(gGoal)
             let cPTotal = course?.value(forKey: "pointstotal") as? Double
+            print(cPTotal!)
             var total = 0
             let assignmentList = getAssignmentList(section: selectedSection!)
             var ccGrade = 0.0
@@ -137,15 +141,16 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             var difference = weight - Float(total) // TOTAL POINTS FOR THIS SECTION MINUS POINTS EARNED FOR THIS SECTION
             print(difference)
             print(ccGrade) // THIS NEEDS TO BE MULTIPLIED BY 2 F0R 1,000, BUT NOT FOR 500
-            if (Float(ccGrade) + difference ) < Float(gGoal) {
-                print(ccGrade)
+            print("^ccGRADR")
+            if (Float(cGrade) + difference ) < Float(gGoal) {
+                print(cGrade)
                 print(difference)
                 print(gGoal)
                 print("HEREEEE")
                 requiredGrade = Int(difference) // this means it's impossible to reach your goal
                 self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
-            } else if (Float(ccGrade) + difference ) > Float(gGoal){
-                while (Float(ccGrade) + difference ) > Float(gGoal) {
+            } else if (Float(cGrade) + difference ) > Float(gGoal){
+                while (Float(cGrade) + difference ) > Float(gGoal) {
                     difference -= 1
                 }
                 if difference <= 0{
@@ -186,16 +191,17 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         for sec in sections! {
             ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
         }
-        ccGrade = ccGrade * 10 * 2
+        let cGrade = course?.value(forKey: "grade") as! Double
+        //ccGrade = ccGrade * 10 * 2
         if requiredGrade < 0{
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")
-        } else if (requiredGrade == 0) && (ccGrade == gGoal) {
+        } else if (requiredGrade == 0) && (cGrade == gGoal) {
             self.warning.text = "You have reached this class's Grade Goal."
             return ("0")
         }else if requiredGrade == 0 {
             print("HOLA")
-            print(ccGrade)
+            print(cGrade)
             print(gGoal)
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")

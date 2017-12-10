@@ -16,5 +16,5 @@ Differences:
 1) We had labels that were displaying grades under the "Points" system display as fractions (ex: 100.0/200.0) as opposed to percentages.
 
 Special Instructions:
-None
+Open the "GPA Pal.xcworkspace" file to open the project (to incorporate the Charts Framework)
 

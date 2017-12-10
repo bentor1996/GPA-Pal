@@ -30,6 +30,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // Do any additional setup after loading the view.
         selectedSection = sections![0]
         self.requiredGrade.text = calculateCourseAverage()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -221,6 +222,10 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return Double(currentGrade)
     }
     
+    @IBAction func settingsClicked(_ sender: Any) {
+ 
+        performSegue(withIdentifier: "toSettings4", sender: nil)
+    }
     /*
     // MARK: - Navigation
 

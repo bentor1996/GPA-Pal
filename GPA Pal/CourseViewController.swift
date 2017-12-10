@@ -115,4 +115,12 @@ class CourseViewController: UIViewController, UITableViewDataSource, UITableView
         // Pass the selected object to the new view controller.
         }
     }
+    
+    @IBAction func settingsClicked(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toSettings2", sender: nil)
+    
+    }
+    
+    
 }

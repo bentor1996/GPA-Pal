@@ -76,11 +76,11 @@ class GraphViewController: UIViewController {
         chartDataSet.colors = [UIColor(red: 0.9176, green: 0.2431, blue: 0.4353, alpha: 1.0)]
         barChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        let avg = ChartLimitLine(limit: average, label: "Average Goal = \(average)")
-        avg.valueFont = UIFont(name: "HelveticaNeue", size: 17.0)!
-        avg.valueTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)
-        avg.lineColor = UIColor(red: 0.3843, green: 0.6314, blue: 0.749, alpha: 1.0)
-        barChartView.rightAxis.addLimitLine(avg)
+        //let avg = ChartLimitLine(limit: average, label: "Average Goal = \(average)")
+        //avg.valueFont = UIFont(name: "HelveticaNeue", size: 17.0)!
+        //avg.valueTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)
+        //avg.lineColor = UIColor(red: 0.3843, green: 0.6314, blue: 0.749, alpha: 1.0)
+        //barChartView.rightAxis.addLimitLine(avg)
         let  xAxis : XAxis = self.barChartView.xAxis
         xAxis.labelFont = UIFont(name: "HelveticaNeue", size: 17.0)!
         xAxis.labelTextColor = UIColor(red: 1, green: 0.9882, blue: 0.9176, alpha: 1.0)

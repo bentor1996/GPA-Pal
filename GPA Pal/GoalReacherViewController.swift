@@ -115,7 +115,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // else, if this is the POINTS SYSTEM
         } else {
             let cGrade = course?.value(forKey: "grade") as! Double
-            let gGoal = course?.value(forKey: "gradeGoal") as! Double
+            let gGoal = (course?.value(forKey: "gradeGoal") as! Double)
             let cPTotal = course?.value(forKey: "pointstotal") as? Double
             var total = 0
             let assignmentList = getAssignmentList(section: selectedSection!)
@@ -123,29 +123,41 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             for sec in sections! {
                 ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
             }
-            print("CURRRENT GRADE")
-            print(ccGrade)
             for ass in assignmentList {
                 total += ass.value(forKey: "grade") as! Int
             }
             let weight = selectedSection?.value(forKey: "weight") as! Float
             let average = ((Float(total)/weight) * 100) / 2
-            ccGrade = ccGrade * 2
+            ccGrade = ccGrade * 2 * 10 // THIS IS THE CURRENT GRADE
+            print("OGOGOGO")
+            print(weight)
+            print(total)
+            print(gGoal)
             setSectionAverage(section: selectedSection!, average: Float(average))
-            var difference = weight - Float(total)
+            var difference = weight - Float(total) // TOTAL POINTS FOR THIS SECTION MINUS POINTS EARNED FOR THIS SECTION
+            print(difference)
+            print(ccGrade)
             if (Float(ccGrade) + difference ) < Float(gGoal) {
-                requiredGrade = Int(weight + 1)
+                print(ccGrade)
+                print(difference)
+                print(gGoal)
+                print("HEREEEE")
+                requiredGrade = Int(difference) // this means it's impossible to reach your goal
+                self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             } else if (Float(ccGrade) + difference ) > Float(gGoal){
                 while (Float(ccGrade) + difference ) > Float(gGoal) {
                     difference -= 1
+                    print(difference)
+                    print("~o")
                 }
                 if difference <= 0{
-                    difference = 0
+                    difference = 0 // this means you have excess capacity to reach your goal
                 }
                 requiredGrade = Int(difference)
             } else {
                 requiredGrade = 0
-                requiredGrade = Int(difference)
+                requiredGrade = Int(difference) // this means you have exactly met your goal
+                self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             }
         }
         
@@ -156,24 +168,37 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             else {
                 self.warning.text = " "
             }
-        } else {
-            self.warning.text = " "
         }
         let weight = selectedSection?.value(forKey: "weight") as! Float
         if course?.value(forKey: "totalType") as? String != "Percent" {
             if (Float(requiredGrade) > weight) {
+                print(requiredGrade)
+                print(weight)
+                print("WHATTT")
                 requiredGrade = -1
                 self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             }
         }
         print(requiredGrade)
+        let gGoal = (course?.value(forKey: "gradeGoal") as! Double)
+        var ccGrade = 0.0
+        ccGrade = ccGrade * 2 * 10
+        let cPTotal = course?.value(forKey: "pointstotal") as? Double
+        for sec in sections! {
+            ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
+        }
+        
         if requiredGrade < 0{
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")
-        } else if (requiredGrade == 0) {
+        } else if (requiredGrade == 0) && (ccGrade == gGoal) {
             self.warning.text = "You have reached this class's Grade Goal."
             return ("0")
+        }else if requiredGrade == 0 {
+            self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
+            return ("0")
         }else {
+            self.warning.text = " "
             return (String(requiredGrade))
         }
     }

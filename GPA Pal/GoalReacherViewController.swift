@@ -128,7 +128,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
             let weight = selectedSection?.value(forKey: "weight") as! Float
             let average = ((Float(total)/weight) * 100) / 2
-            ccGrade = ccGrade * 2 * 10 // THIS IS THE CURRENT GRADE
+            ccGrade = ccGrade * 10 * 2 // THIS IS THE CURRENT GRADE
             print("OGOGOGO")
             print(weight)
             print(total)
@@ -136,7 +136,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             setSectionAverage(section: selectedSection!, average: Float(average))
             var difference = weight - Float(total) // TOTAL POINTS FOR THIS SECTION MINUS POINTS EARNED FOR THIS SECTION
             print(difference)
-            print(ccGrade)
+            print(ccGrade) // THIS NEEDS TO BE MULTIPLIED BY 2 F0R 1,000, BUT NOT FOR 500
             if (Float(ccGrade) + difference ) < Float(gGoal) {
                 print(ccGrade)
                 print(difference)
@@ -147,8 +147,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             } else if (Float(ccGrade) + difference ) > Float(gGoal){
                 while (Float(ccGrade) + difference ) > Float(gGoal) {
                     difference -= 1
-                    print(difference)
-                    print("~o")
                 }
                 if difference <= 0{
                     difference = 0 // this means you have excess capacity to reach your goal
@@ -180,6 +178,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             }
         }
         print(requiredGrade)
+        print(requiredGrade)
         let gGoal = (course?.value(forKey: "gradeGoal") as! Double)
         var ccGrade = 0.0
         
@@ -187,7 +186,7 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         for sec in sections! {
             ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
         }
-        ccGrade = ccGrade * 2 * 10
+        ccGrade = ccGrade * 10 * 2
         if requiredGrade < 0{
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")

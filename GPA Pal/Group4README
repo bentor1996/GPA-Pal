@@ -3,9 +3,9 @@ Implementation Contributions:
 
                         Contribution %  |    Tasks Completed
                         __________________________________________________________
-    Muhammad Ghauri:    |       25%     |
-    Omar Olivarez:      |       25%     | GoalReacherVC bugs repaired, some of CourseDetailsVC
-    Benjamin Torres:    |       50%     |
+    Muhammad Ghauri:    |       33.33%     | Settings Screen, Add Course View Controller
+    Omar Olivarez:      |       33.33%     | GoalReacherVC bugs repaired, some of CourseDetailsVC
+    Benjamin Torres:    |       33.33%     | Added Graph, added UI elements (icon, login page, settings logo)
                         ----------------------------------------------------------
 
 Grading Level:

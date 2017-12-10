@@ -73,7 +73,7 @@ class GraphViewController: UIViewController {
         barChartView.data = ChartData
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
         barChartView.xAxis.granularity = 1
-        chartDataSet.colors = [UIColor(red: 0.9176, green: 0.2431, blue: 0.4353, alpha: 1.0)]
+        chartDataSet.colors = ChartColorTemplates.joyful()
         barChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         let avg = ChartLimitLine(limit: average, label: "Average Goal = \(average)")

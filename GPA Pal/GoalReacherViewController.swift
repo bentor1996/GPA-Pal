@@ -60,83 +60,144 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         // first, the section average must be recalculated
         var requiredGrade = -1
         var calculatedCourseGrade = 0.0
-        let cGrade = course?.value(forKey: "grade") as! Double
-        let gGoal = course?.value(forKey: "gradeGoal") as! Double
-        let cPTotal = course?.value(forKey: "pointstotal") as? Double
-        if cGrade < gGoal {
-            let assignmentList = getAssignmentList(section: selectedSection!)
-            if assignmentList.count < 1 {
-                //let valueToReturn = selectedSection!.value(forKey: "weight") as! Double
-                //let vTR = String(valueToReturn)
-                let vTR = "100"
-                requiredGrade = 100
-                self.warning.text = " "
-                return vTR
-            }
-            
-            while calculatedCourseGrade < gGoal {
-                print(1)
-                var total = 0
-                var average = 0
-                requiredGrade += 1
-                for ass in assignmentList {
-                    total += ass.value(forKey: "grade") as! Int
+        if course?.value(forKey: "totalType") as? String == "Percent" {
+            let cGrade = course?.value(forKey: "grade") as! Double
+            let gGoal = course?.value(forKey: "gradeGoal") as! Double
+            let cPTotal = course?.value(forKey: "pointstotal") as? Double
+            if cGrade < gGoal {
+                let assignmentList = getAssignmentList(section: selectedSection!)
+                if assignmentList.count < 1 {
+                    //let valueToReturn = selectedSection!.value(forKey: "weight") as! Double
+                    //let vTR = String(valueToReturn)
+                    let vTR = "100"
+                    requiredGrade = 100
+                    self.warning.text = " "
+                    return vTR
                 }
-                total += requiredGrade
-                average = total/(assignmentList.count + 1)
-                calculatedCourseGrade = reCalculate(average: Double(average))
-            }
-            
-        } else if cGrade >= gGoal {
-            if cGrade == gGoal {
-                requiredGrade = 100
-                self.warning.text = " "
-                return "100" // I think this is right? At least for % it should be
-                // and actually, if we're just saying that you're 'average' or grade after being converted to a 0-100 point scale is what we're
-                // returning, then this should also be fine
-            } else {
-                // calculate the lowest grade they can get to still earn their grade goal
-                requiredGrade = Int(cGrade)
-                var calculatedCourseGrade = 0.0
-                while (calculatedCourseGrade > gGoal) {
+                
+                while calculatedCourseGrade < gGoal {
+                    print(1)
                     var total = 0
-                    requiredGrade -= 1
-                    let assignmentList = getAssignmentList(section: selectedSection!)
-                    if assignmentList.count < 1 {
-                        //let valueToReturn = selectedSection!.value(forKey: "weight") as! Double
-                        //let vTR = String(valueToReturn)
-                        let vTR = "100"
-                        requiredGrade = 100
-                        self.warning.text = " "
-                        return vTR
-                    } else {
-                        for ass in assignmentList {
-                            total += ass.value(forKey: "grade") as! Int
+                    var average = 0
+                    requiredGrade += 1
+                    for ass in assignmentList {
+                        total += ass.value(forKey: "grade") as! Int
+                    }
+                    total += requiredGrade
+                    average = total/(assignmentList.count + 1)
+                    calculatedCourseGrade = reCalculate(average: Double(average))
+                }
+                
+            } else if cGrade >= gGoal {
+                if cGrade == gGoal {
+                    requiredGrade = 100
+                    self.warning.text = " "
+                    return "100" // I think this is right? At least for % it should be
+                    // and actually, if we're just saying that you're 'average' or grade after being converted to a 0-100 point scale is what we're
+                    // returning, then this should also be fine
+                } else {
+                    // calculate the lowest grade they can get to still earn their grade goal
+                    requiredGrade = Int(cGrade)
+                    var calculatedCourseGrade = 0.0
+                    while (calculatedCourseGrade > gGoal) {
+                        var total = 0
+                        requiredGrade -= 1
+                        let assignmentList = getAssignmentList(section: selectedSection!)
+                        if assignmentList.count < 1 {
+                            //let valueToReturn = selectedSection!.value(forKey: "weight") as! Double
+                            //let vTR = String(valueToReturn)
+                            let vTR = "100"
+                            requiredGrade = 100
+                            self.warning.text = " "
+                            return vTR
+                        } else {
+                            for ass in assignmentList {
+                                total += ass.value(forKey: "grade") as! Int
+                            }
+                            total += requiredGrade
+                            let average = total/(assignmentList.count + 1)
+                            calculatedCourseGrade = reCalculate(average: Double(average))
                         }
-                        total += requiredGrade
-                        let average = total/(assignmentList.count + 1)
-                        calculatedCourseGrade = reCalculate(average: Double(average))
                     }
                 }
             }
+        // else, if this is the POINTS SYSTEM
+        } else {
+            let cGrade = course?.value(forKey: "grade") as! Double
+            let gGoal = course?.value(forKey: "gradeGoal") as! Double
+            let cPTotal = course?.value(forKey: "pointstotal") as? Double
+            var total = 0
+            let assignmentList = getAssignmentList(section: selectedSection!)
+            var ccGrade = 0.0
+            for sec in sections! {
+                ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!) // removed ""
+            }
+            print("CURRRENT GRADE")
+            print(ccGrade)
+            for ass in assignmentList {
+                total += ass.value(forKey: "grade") as! Int
+            }
+            //var average = total/(selectedSection?.value(forKey: "weight") as! Int)
+            let weight = selectedSection?.value(forKey: "weight") as! Float
+            let average = ((Float(total)/weight) * 100) / 2
+            ccGrade = ccGrade * 2
+            setSectionAverage(section: selectedSection!, average: Float(average))
+            var difference = weight - Float(total)
+            if (Float(ccGrade) + difference ) < Float(gGoal) {
+                requiredGrade = Int(weight + 1)
+            } else if (Float(ccGrade) + difference ) > Float(gGoal){
+                while (Float(ccGrade) + difference ) > Float(gGoal) {
+                    difference -= 1
+                }
+                if difference <= 0{
+                    difference = 0
+                }
+                requiredGrade = Int(difference)
+            } else {
+                requiredGrade = 0
+                requiredGrade = Int(difference)
+            }
         }
+        
         if requiredGrade > 100 {
-            self.warning.text = "This grade is above 100% - it may be difficult to reach this goal"
+            if course?.value(forKey: "totalType") as? String == "Percent" {
+                self.warning.text = "This grade is above 100% - it may be difficult to reach this goal"
+            }
+            else {
+                self.warning.text = " "
+            }
         } else {
             self.warning.text = " "
         }
-        return (String(requiredGrade))
+        let weight = selectedSection?.value(forKey: "weight") as! Float
+        if course?.value(forKey: "totalType") as? String != "Percent" {
+            if (Float(requiredGrade) > weight) {
+                requiredGrade = -1
+                self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
+            }
+        }
+        print(requiredGrade)
+        if requiredGrade < 0{
+            self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
+            return ("0")
+            
+        } else if (requiredGrade == 0) {
+            self.warning.text = "You have reached this class's Grade Goal."
+            return ("0")
+        }else {
+            return (String(requiredGrade))
+        }
     }
     
     func reCalculate (average: Double) -> Double {
         var currentGrade = 0.0
         let cPTotal = course?.value(forKey: "pointstotal") as? Double
+        print(cPTotal!)
         if course?.value(forKey: "totalType") as? String == "Percent" {
             for sec in sections! {
                 let sectionName = sec.value(forKey: "name") as? String
                 let thisSectionName = selectedSection?.value(forKey: "name") as? String
                 if sectionName == thisSectionName {
-                    // use average rather than the stored average
                     currentGrade += (sec.value(forKey: "weight") as! Double) * (average/100)
                     print("passed in average")
                     print(average)
@@ -149,8 +210,9 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 let sectionName = sec.value(forKey: "name") as? String
                 let thisSectionName = selectedSection?.value(forKey: "name") as? String
                 if sectionName == thisSectionName {
-                    // use average rather than the stored average
                     currentGrade += (sec.value(forKey: "weight") as! Double) * average
+                    print(average)
+                    print(currentGrade)
                 } else {
                     currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
                 }

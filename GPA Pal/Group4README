@@ -3,19 +3,18 @@ Implementation Contributions:
 
                         Contribution %  |    Tasks Completed
                         __________________________________________________________
-    Muhammad Ghauri:    |       25%     | Add Course Controller, CourseTableViewCell, Quality Control on existing codebase, UI Constraints 
-    Omar Olivarez:      |       25%     | GoalReacherViewController, CourseDetailsViewController, Course Config, Section Config
-    Benjamin Torres:    |       50%     | Linked CoreData objects, Add New Grade Functionality, SectionTableViewController, Semester Config, helper functions
+    Muhammad Ghauri:    |       25%     |
+    Omar Olivarez:      |       25%     | GoalReacherVC bugs repaired, some of CourseDetailsVC
+    Benjamin Torres:    |       50%     |
                         ----------------------------------------------------------
 
 Grading Level:
-Same Grade for all members.
+Same grade for all members.
 
 
 Differences:
-    1) We added new attributes to the Section class in the data model, to include the  "average" attribute for each section to aide us in calculating each section's grade.
-    2) We were originally planning on including notifications. We did not include them because they did not seem to have a function in the app.
+1) We had labels that were displaying grades under the "Points" system display as fractions (ex: 100.0/200.0) as opposed to percentages.
 
 Special Instructions:
-Make sure to delete the app on the simulator if it loads from the previous build. We have made some changes to core data, so deleting the app will ensure that it loads correctly and will allow you to create semester, course, section, and assignment objects.
+None
 

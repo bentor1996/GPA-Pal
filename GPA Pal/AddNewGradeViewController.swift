@@ -151,18 +151,34 @@ class AddNewGradeViewController: UIViewController, UIPickerViewDelegate, UIPicke
             
             print("Percent, Done new average is \(average)")
         } else {
+            // DIVIDE THE SUM(SECTION'S GRADES LIST) BY THAT SECTION'S WEIGHT
+            var ccGrade = 0.0
             var total = 0
+            let cPTotal = course?.value(forKey: "pointstotal") as? Double
             let assignmentList = getAssignmentList(section: selectedSection!)
+            for sec in sections! {
+                ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!) // removed ""
+            }
             for ass in assignmentList {
                 total += ass.value(forKey: "grade") as! Int
             }
-            //var average = total/(selectedSection?.value(forKey: "weight") as! Int)
-            let weight = selectedSection?.value(forKey: "weight") as! Float
-            let average = (Float(total)/weight) * 100
-            setSectionAverage(section: selectedSection!, average: Float(average))
+            ccGrade = ccGrade * 2
             
+            //1) var average = total/(selectedSection?.value(forKey: "weight") as! Int)
+            let weight = selectedSection?.value(forKey: "weight") as! Float
+            let average = ((Float(total)/weight) * 100)/2
+            setSectionAverage(section: selectedSection!, average: Float(average))
+            print("CCGRADE IS HEREEEE")
+            print(ccGrade)
+            // REPEAT THE ABOVE CODE
+            ccGrade = 0.0
+            for sec in sections! {
+                ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!) // removed ""
+            }
+            ccGrade = ccGrade * 2
+            print(ccGrade)
             // set the new course average
-            calculateCourseAverage()
+            setCourseAverage(course: course!, average: Float(ccGrade))
             
             print("number, new average is \(average)")
         }

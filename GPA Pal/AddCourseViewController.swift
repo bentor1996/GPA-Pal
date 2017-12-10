@@ -19,6 +19,10 @@ extension String {
 
 class AddCourseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
     var semester: NSManagedObject?
     var semesterID: NSManagedObjectID?
     
@@ -59,7 +63,16 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
         self.title = "Add New Class"
         self.tableViewSections.dataSource = self
         self.tableViewSections.delegate = self
+        scrollView.contentSize.height = self.view.frame.height-100
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -102,6 +115,9 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                             //GOOD
                             intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
                             self.tableViewSections.reloadData()
+                            tableViewHeight.constant = CGFloat(intRows * 113)
+                            self.scrollView.contentSize.height = CGFloat((intRows * 113)+600)
+                            self.view.layoutIfNeeded()
                             }
                             else {
                                 displayMessage(_message: "Grade goal must be less than or equal to total points")
@@ -115,7 +131,15 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
                         if (Int(txtGradeGoal.text!)! <= 100) {
                             //GOOD
                             intRows = Int(txtNumSections.text!.trimmingCharacters(in: .whitespacesAndNewlines))!
+                            print(intRows * 113)
+                            
                             self.tableViewSections.reloadData()
+                            tableViewHeight.constant = CGFloat(intRows * 113)
+                            self.scrollView.contentSize.height = CGFloat((intRows * 113)+600)
+                            self.view.layoutIfNeeded()
+                            //self.tableViewSections.frame = CGRect(origin: self.tableViewSections.frame.width, size: CGFloat(intRows * 113))
+                            //tableViewSections.frame.height = intRows * 113
+                            //tableViewSections.contentSize.height = CGFloat(intRows * 113)
                         }
                         else {
                             displayMessage(_message: "Make sure your grade goal is less than or equal to 100")
@@ -307,6 +331,7 @@ class AddCourseViewController: UIViewController, UITableViewDelegate, UITableVie
     //
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        self.scrollView.endEditing(true)
     }
 
     /*

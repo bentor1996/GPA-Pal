@@ -15,8 +15,7 @@ class SectionTableViewCell: UITableViewCell {
     @IBOutlet weak var txtName: UITextField!
     
     @IBOutlet weak var txtWeight: UITextField!
-    
-    
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

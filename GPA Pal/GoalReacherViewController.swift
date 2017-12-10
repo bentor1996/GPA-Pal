@@ -56,8 +56,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func calculateCourseAverage() -> String {
-        // calculate average for % system
-        // first, the section average must be recalculated
         var requiredGrade = -1
         var calculatedCourseGrade = 0.0
         if course?.value(forKey: "totalType") as? String == "Percent" {
@@ -67,8 +65,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             if cGrade < gGoal {
                 let assignmentList = getAssignmentList(section: selectedSection!)
                 if assignmentList.count < 1 {
-                    //let valueToReturn = selectedSection!.value(forKey: "weight") as! Double
-                    //let vTR = String(valueToReturn)
                     let vTR = "100"
                     requiredGrade = 100
                     self.warning.text = " "
@@ -92,11 +88,8 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 if cGrade == gGoal {
                     requiredGrade = 100
                     self.warning.text = " "
-                    return "100" // I think this is right? At least for % it should be
-                    // and actually, if we're just saying that you're 'average' or grade after being converted to a 0-100 point scale is what we're
-                    // returning, then this should also be fine
+                    return "100"
                 } else {
-                    // calculate the lowest grade they can get to still earn their grade goal
                     requiredGrade = Int(cGrade)
                     var calculatedCourseGrade = 0.0
                     while (calculatedCourseGrade > gGoal) {
@@ -104,8 +97,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         requiredGrade -= 1
                         let assignmentList = getAssignmentList(section: selectedSection!)
                         if assignmentList.count < 1 {
-                            //let valueToReturn = selectedSection!.value(forKey: "weight") as! Double
-                            //let vTR = String(valueToReturn)
                             let vTR = "100"
                             requiredGrade = 100
                             self.warning.text = " "
@@ -130,14 +121,13 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
             let assignmentList = getAssignmentList(section: selectedSection!)
             var ccGrade = 0.0
             for sec in sections! {
-                ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!) // removed ""
+                ccGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
             }
             print("CURRRENT GRADE")
             print(ccGrade)
             for ass in assignmentList {
                 total += ass.value(forKey: "grade") as! Int
             }
-            //var average = total/(selectedSection?.value(forKey: "weight") as! Int)
             let weight = selectedSection?.value(forKey: "weight") as! Float
             let average = ((Float(total)/weight) * 100) / 2
             ccGrade = ccGrade * 2
@@ -180,7 +170,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if requiredGrade < 0{
             self.warning.text = "You need more points than are left in this section, you will need more points in your other sections to accomplish your goal."
             return ("0")
-            
         } else if (requiredGrade == 0) {
             self.warning.text = "You have reached this class's Grade Goal."
             return ("0")
@@ -199,8 +188,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 let thisSectionName = selectedSection?.value(forKey: "name") as? String
                 if sectionName == thisSectionName {
                     currentGrade += (sec.value(forKey: "weight") as! Double) * (average/100)
-                    print("passed in average")
-                    print(average)
                 } else {
                     currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
                 }
@@ -211,8 +198,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 let thisSectionName = selectedSection?.value(forKey: "name") as? String
                 if sectionName == thisSectionName {
                     currentGrade += (sec.value(forKey: "weight") as! Double) * average
-                    print(average)
-                    print(currentGrade)
                 } else {
                     currentGrade += (sec.value(forKey: "weight") as! Double) * ((sec.value(forKey: "average") as! Double)/cPTotal!)
                 }
@@ -223,17 +208,6 @@ class GoalReacherViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func settingsClicked(_ sender: Any) {
- 
         performSegue(withIdentifier: "toSettings4", sender: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
